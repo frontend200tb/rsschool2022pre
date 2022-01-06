@@ -25,7 +25,6 @@ body {
 .container {
   width: 1440px;
   margin: 0 auto;
-  background-color: #333;
 }
 
 
@@ -34,7 +33,6 @@ HEADER
 ***********************/
 .header {
   height: 90px;
-  background-color: lightgreen;
 }
 
 .header-container {
@@ -48,7 +46,7 @@ HEADER
   margin: 20px;
   width: 50px;
   height: 50px;
-  background-image: url('../assets/svg/logo.svg');
+  background-image: url('../assets/svg/header-logo.svg');
   background-size: contain;
   background-repeat: no-repeat;  
   transition: 0.3s;
@@ -183,40 +181,76 @@ MAIN
   flex-wrap: wrap;
   margin-top: 60px;
   height: 242px;
-  background-color: #999;
 }
 
 .skills-item {
   width: 320px;
   height: 240px;
-  background-color: #fff;
+  color: var(--white);
 }
 
 .skills-item {
+  padding: 100px 20px 8px 20px;
   background-position: center top;
+  background-repeat: no-repeat;
 }
 
 .skills-item:nth-child(1) {
-  background-image: url('../assets/svg/camera 1.svg');
-  background-size: 62px 50px;
+  background-image: url('../assets/svg/skills-camera.svg');
+  background-size: 62px 50px;  
+}
+
+.skills-item:nth-child(2) {
+  background-image: url('../assets/svg/skills-video.svg');
+  background-size: 60px 50px;  
+}
+
+.skills-item:nth-child(3) {
+  background-image: url('../assets/svg/skills-retouch.svg');
+  background-size: 66px 50px;  
+}
+
+.skills-item:nth-child(4) {
+  background-image: url('../assets/svg/skills-mic.svg');
+  background-size: 32px 50px;  
+}
+
+.skill-title {
+  margin: 0 auto 20px;
+  width: 280px;
+  height: 40px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: center;
+}
+
+.skill-text {
+  font-size: 18px;
+  line-height: 36px;
+  text-align: center;
 }
 
 .portfolio {
   padding: 100px 20px 0 20px;
   height: 1500px;
+  background-color: #333;
 }
 
 .video {
   padding: 100px 20px 0 20px;
   height: 945px;
+  background-color: green;
 }
 
 .price {
   padding: 100px 20px 0 20px;
   height: 845px;
+  background-color: yellow;
 }
+
 .contacts {
   height: 700px;
+  background-color: red;
 }
 
 
@@ -224,6 +258,10 @@ MAIN
 FOOTER
 ***********************/
 .footer {
-  height: 150px;
   background-color: lightgreen;
+}
+
+.footer-container {
+  height: 150px;
+  background-color: #999;
 }
