@@ -1,3 +1,10 @@
+:root {
+  --bg-dark: #000;
+  --gold: #bdae82;
+  --white: #fff;
+  --time: #999;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -9,12 +16,13 @@ html {
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Inter';
+  font-weight: 400;
 }
 
 .container {
   width: 1040px;
   margin: 0 auto;
-  background-color: #999;
 }
 
 .header {
@@ -68,7 +76,7 @@ body {
   text-decoration: none;  
   font-size: 20px;
   line-height: 50px;
-  color: #fff;
+  color: var(--white);
 }
 
 .switch-lng {
@@ -77,18 +85,25 @@ body {
   height: 50px;
   font-size: 20px;
   line-height: 50px;
-  color: #fff;
+  color: var(--white);
+  font-family: 'Inter';
+  font-weight: 700;
 }
 
 .en {
-  color: #bdae82;
+  color: var(--gold);
 }
+
 .main {
   background-color: rgb(211, 148, 148);
 }
 
+
 .hero {
-  height: 910px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 820px;
   background-color: lightgreen;
   background-image: url('../assets/img/header-bg.jpg');
   background-position: center -90px;
@@ -96,7 +111,49 @@ body {
 }
 
 .hero-container {
+  position: relative;
+  left: 80px;
+  top: 160px;
+  width: 500px;
+  height: 330px;
+  color: var(--white);
+}
 
+.hero-title {
+  margin: 0;
+  padding: 0;
+  font-size: 60px;
+  line-height: 120px;
+  font-family: 'Merriweather';
+  font-weight: 700;
+}
+
+.hero-text {
+  margin: 10px 30px 25px 0;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.hero-btn {
+  width: 220px;
+  height: 55px;
+  font-size: 20px;
+  line-height: 40px;
+  border: none;
+  background-color: var(--gold);
+}
+
+.section-title {
+  font-family: 'Merriweather';
+  font-weight: 700;  
+}
+
+.skills {
+  background-color: var(--white);
+}
+
+.portfolio {
+  background-color: #fff;
 }
 
 .footer {
