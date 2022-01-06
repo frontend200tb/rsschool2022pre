@@ -18,13 +18,20 @@ body {
   padding: 0;
   font-family: 'Inter';
   font-weight: 400;
+  font-size: 20px;
+  background-color: var(--bg-dark);
 }
 
 .container {
-  width: 1040px;
+  width: 1440px;
   margin: 0 auto;
+  background-color: #333;
 }
 
+
+/***********************
+HEADER
+***********************/
 .header {
   height: 90px;
   background-color: lightgreen;
@@ -71,10 +78,10 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .nav-link {
   margin: 0 30px;
   text-decoration: none;  
-  font-size: 20px;
   line-height: 50px;
   color: var(--white);
 }
@@ -83,7 +90,6 @@ body {
   margin: 20px 20px 20px 0;
   width: 70px;
   height: 50px;
-  font-size: 20px;
   line-height: 50px;
   color: var(--white);
   font-family: 'Inter';
@@ -94,15 +100,17 @@ body {
   color: var(--gold);
 }
 
+
+/***********************
+MAIN
+***********************/
 .main {
-  background-color: rgb(211, 148, 148);
+
 }
 
 
 .hero {
-  margin: 0;
-  padding: 0;
-  position: relative;
+  padding: 160px 0 0 80px;
   height: 820px;
   background-color: lightgreen;
   background-image: url('../assets/img/header-bg.jpg');
@@ -111,9 +119,6 @@ body {
 }
 
 .hero-container {
-  position: relative;
-  left: 80px;
-  top: 160px;
   width: 500px;
   height: 330px;
   color: var(--white);
@@ -122,40 +127,102 @@ body {
 .hero-title {
   margin: 0;
   padding: 0;
-  font-size: 60px;
-  line-height: 120px;
   font-family: 'Merriweather';
   font-weight: 700;
+  font-size: 60px;
+  line-height: 120px;
 }
 
 .hero-text {
   margin: 10px 30px 25px 0;
-  font-size: 20px;
   line-height: 40px;
 }
 
-.hero-btn {
+.btn {
   width: 220px;
   height: 55px;
+  font-family: inherit;
   font-size: 20px;
   line-height: 40px;
+  cursor: pointer;
+}
+
+.btn-gold {
   border: none;
   background-color: var(--gold);
 }
 
-.section-title {
-  font-family: 'Merriweather';
-  font-weight: 700;  
-}
-
 .skills {
-  background-color: var(--white);
+  padding: 100px 20px 0 20px;
+  height: 482px;
 }
 
-.portfolio {
+.section-title {
+  margin: 0 auto;
+  width: 50%;
+  height: 80px;
+  background-image: linear-gradient(to top, #000 39px, #bdae82 39px, #bdae82 41px, #000 41px);
+  text-align: center;
+}
+
+.section-title-h2 {
+  display: inline;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-family: 'Merriweather';
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 80px;
+  color: var(--gold);
+  background-color: var(--bg-dark);
+}
+
+.skills-items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  height: 242px;
+  background-color: #999;
+}
+
+.skills-item {
+  width: 320px;
+  height: 240px;
   background-color: #fff;
 }
 
+.skills-item {
+  background-position: center top;
+}
+
+.skills-item:nth-child(1) {
+  background-image: url('../assets/svg/camera 1.svg');
+  background-size: 62px 50px;
+}
+
+.portfolio {
+  padding: 100px 20px 0 20px;
+  height: 1500px;
+}
+
+.video {
+  padding: 100px 20px 0 20px;
+  height: 945px;
+}
+
+.price {
+  padding: 100px 20px 0 20px;
+  height: 845px;
+}
+.contacts {
+  height: 700px;
+}
+
+
+/***********************
+FOOTER
+***********************/
 .footer {
   height: 150px;
   background-color: lightgreen;
