@@ -59,7 +59,6 @@ HEADER
 
 .nav {
   margin: 20px 0 20px auto;
-  width: 500px;
   height: 50px;
 }
 
@@ -143,10 +142,11 @@ MAIN
   font-size: 20px;
   line-height: 40px;
   cursor: pointer;
+  border: 2px solid var(--gold);
 }
 
 .btn-gold {
-  border: none;
+  color: var(--bg-dark);
   background-color: var(--gold);
 }
 
@@ -233,13 +233,37 @@ MAIN
 .portfolio {
   padding: 100px 20px 0 20px;
   height: 1500px;
-  background-color: #333;
+}
+
+.portfolio-btns {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 60px auto;
+  max-width: 895px;
+}
+
+.btn-black {
+  color: var(--gold);
+  background-color: var(--bg-dark);
+}
+
+.portfolio-items {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.portfolio-img {
+  width: 450px;
+  height: 560px;
 }
 
 .video {
   padding: 100px 20px 0 20px;
   height: 945px;
-  background-color: green;
+  background-color: #999;
 }
 
 .price {
