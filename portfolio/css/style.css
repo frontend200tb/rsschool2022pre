@@ -106,6 +106,9 @@ MAIN
 }
 
 
+/***********************
+HERO
+***********************/
 .hero {
   padding: 160px 0 0 80px;
   height: 820px;
@@ -150,6 +153,10 @@ MAIN
   background-color: var(--gold);
 }
 
+
+/***********************
+SKILLS
+***********************/
 .skills {
   padding: 100px 20px 0 20px;
   height: 482px;
@@ -230,6 +237,10 @@ MAIN
   text-align: center;
 }
 
+
+/***********************
+PORTFOLIO
+***********************/
 .portfolio {
   padding: 100px 20px 0 20px;
   height: 1500px;
@@ -260,21 +271,55 @@ MAIN
   height: 560px;
 }
 
+
+/***********************
+VIDEO
+***********************/
 .video {
   padding: 100px 20px 0 20px;
   height: 945px;
-  background-color: #999;
 }
 
+.video-player {
+  margin-top: 60px;
+  height: 705px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../assets/img/video-player.jpg');
+}
+
+.play {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  background: none;
+  border: none;
+  background-image: url('../assets/svg/play.svg');
+}
+
+.play:hover {
+  background-image: url('../assets/svg/play_hover.svg');
+}
+
+
+/***********************
+PRICE
+***********************/
 .price {
   padding: 100px 20px 0 20px;
   height: 845px;
-  background-color: yellow;
+  background-color: #999;
 }
 
+
+/***********************
+CONTACTS
+***********************/
 .contacts {
   height: 700px;
-  background-color: red;
+  background-color: green;
 }
 
 
