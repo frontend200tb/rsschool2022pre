@@ -36,19 +36,20 @@ HEADER
 
 .header-container {
   display: flex;
+  padding: 20px;
   background: url('../assets/img/header-bg.jpg');
   background-repeat: no-repeat;
   background-position: center 0;
 }
 
 .logo {
-  margin: 20px;
   width: 50px;
   height: 50px;
   background-image: url('../assets/svg/header-logo.svg');
   background-size: contain;
   background-repeat: no-repeat;  
-  transition: 0.3s;
+  transition: filter 0.5s;
+  cursor: pointer;
 }
 
 .logo:hover {
@@ -57,16 +58,18 @@ HEADER
 }
 
 .nav {
-  margin: 20px 0 20px auto;
+  margin: 0 0 0 auto;
+  width: 500px;
   height: 50px;
 }
 
 .nav-list {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
+  gap: 30px;
   align-items: center;
   margin: 0;
-  padding: 0;
+  padding: 0 30px;
   list-style: none;
 }
 
@@ -76,23 +79,39 @@ HEADER
 }
 
 .nav-link {
-  margin: 0 30px;
   text-decoration: none;  
   line-height: 50px;
   color: var(--white);
+  transition: color 0.5s;
+}
+
+.nav-link:hover {
+  color: var(--gold);  
 }
 
 .switch-lng {
-  margin: 20px 20px 20px 0;
+  display: flex;
+  justify-content: space-between;
   width: 70px;
-  height: 50px;
+  font-size: 20px;
   line-height: 50px;
   color: var(--white);
   font-family: 'Inter';
   font-weight: 700;
 }
 
-.en {
+.switch-en {
+  text-decoration: none;
+  color: var(--gold);
+}
+
+.switch-ru {
+  text-decoration: none;
+  color: var(--white);
+  transition: filter 0.5s;
+}
+
+.switch-ru:hover {
   color: var(--gold);
 }
 
@@ -144,6 +163,11 @@ HERO
   line-height: 40px;
   cursor: pointer;
   border: 2px solid var(--gold);
+  transition: color 0.5s;
+}
+
+.btn:hover {
+  color: var(--white);
 }
 
 .btn-gold {
@@ -319,7 +343,7 @@ PRICE
 .price-item {
   display: flex;
   flex-direction: column;
-  padding: 43px;
+  padding: 41px 0;
   width: 450px;
   height: 505px;
   border: 3px solid var(--gold);
@@ -397,10 +421,10 @@ CONTACTS
 }
 
 .contacts-email {
-  padding-left: 20px;
+  padding-left: 18px;
   height: 50px;
   border: 2px solid var(--gold);
-  background: none;
+  background: rgba(0, 0, 0, 0.5);
   font-family: inherit;
   font-size: 20px;
   line-height: 40px;
@@ -415,10 +439,10 @@ CONTACTS
 }
 
 .contacts-tel {
-  padding-left: 20px;
+  padding-left: 18px;
   height: 50px;
   border: 2px solid var(--gold);
-  background: none;
+  background: rgba(0, 0, 0, 0.5);
   font-family: inherit;
   font-size: 20px;
   line-height: 40px;
@@ -433,12 +457,13 @@ CONTACTS
 }
 
 .contacts-message {
-  padding-left: 20px;
   margin-bottom: 10px;
+  padding-top: 3px;
+  padding-left: 18px;
   height: 100px;
   border: 2px solid var(--gold);
   resize: none;
-  background: none;
+  background: rgba(0, 0, 0, 0.5);
   font-family: inherit;
   font-size: 20px;
   line-height: 40px;
@@ -461,8 +486,9 @@ FOOTER
 }
 
 .footer-container {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 50px 20px;
   height: 150px;
@@ -474,9 +500,20 @@ FOOTER
   gap: 20px;
   height: 50px;
   font-family: inherit;
+  font-weight: 400;
   font-size: 20px;
   line-height: 50px;
   color: var(--white);
+}
+
+.footer-github {
+  text-decoration: none;
+  color: var(--white);
+  transition: color 0.5s;
+}
+
+.footer-github:hover {
+  color: var(--gold);
 }
 
 .footer-rss {
@@ -484,7 +521,16 @@ FOOTER
   font-family: inherit;
   font-size: 20px;
   line-height: 50px;
+  text-decoration: none;
   color: var(--white);
+  transition: color 0.5s;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.footer-rss:hover {
+  color: var(--gold);
 }
 
 .social-list {
@@ -494,7 +540,7 @@ FOOTER
   justify-content: flex-end;
   gap: 20px;
   align-items: center;
-  margin: 0;
+  margin: 0 0 0 auto;
   padding: 0;
   list-style: none;
 }
@@ -502,6 +548,11 @@ FOOTER
 .social-item {
   margin: 0;
   padding: 0;
+  transition: filter 0.5s;
+}
+
+.social-item:hover {
+  filter: invert(26%) sepia(7%) saturate(1355%) hue-rotate(7deg) brightness(95%) contrast(88%);
 }
 
 .social-item:nth-child(1) {
