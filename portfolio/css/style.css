@@ -49,10 +49,10 @@ HEADER
   background-size: contain;
   background-repeat: no-repeat;  
   transition: filter 0.5s;
-  cursor: pointer;
 }
 
 .logo:hover {
+  cursor: pointer;
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
 }
@@ -117,14 +117,6 @@ HEADER
 
 
 /***********************
-MAIN
-***********************/
-.main {
-
-}
-
-
-/***********************
 HERO
 ***********************/
 .hero {
@@ -161,12 +153,12 @@ HERO
   font-family: inherit;
   font-size: 20px;
   line-height: 40px;
-  cursor: pointer;
   border: 2px solid var(--gold);
   transition: color 0.5s;
 }
 
 .btn:hover {
+  cursor: pointer;
   color: var(--white);
 }
 
@@ -319,11 +311,13 @@ VIDEO
   background: none;
   border: none;
   background-image: url('../assets/svg/play.svg');
+  transition: filter 0.5s;
 }
 
 .play:hover {
   cursor: pointer;
-  background-image: url('../assets/svg/play_hover.svg');
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 
@@ -553,6 +547,7 @@ FOOTER
 }
 
 .social-item:hover {
+  cursor: pointer;
   filter: invert(26%) sepia(7%) saturate(1355%) hue-rotate(7deg) brightness(95%) contrast(88%);
 }
 
@@ -583,5 +578,4 @@ FOOTER
   width: 32px;
   height: 32px;
   text-decoration: none; 
-  cursor: pointer;
 }
