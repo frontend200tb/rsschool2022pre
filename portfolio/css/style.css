@@ -322,6 +322,7 @@ VIDEO
 }
 
 .play:hover {
+  cursor: pointer;
   background-image: url('../assets/svg/play_hover.svg');
 }
 
