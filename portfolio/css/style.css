@@ -527,12 +527,12 @@ VIDEO
 ***********************/
 .video {
   padding: 100px 20px 0 20px;
-  height: 945px;
 }
 
 @media (max-width: 768px) {
   .video {
-    padding-top: 80px;
+    padding: 80px 0 0 0;
+    height: 628px;
   }
 }
 
@@ -544,6 +544,17 @@ VIDEO
   justify-content: center;
   align-items: center;
   background-image: url('../assets/img/video-bg.jpg');
+  background-position: 0;
+  background-size: auto 705px;
+}
+
+@media (max-width: 768px) {
+  .video-player {
+    margin-top: 50px;
+    height: 418px;
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .play {
@@ -554,6 +565,13 @@ VIDEO
   border: none;
   background-image: url('../assets/svg/play.svg');
   transition: filter 0.5s;
+}
+
+@media (max-width: 768px) {
+  .play {
+    width: 75px;
+    height: 75px;
+  }
 }
 
 .play:hover {
@@ -567,15 +585,29 @@ VIDEO
 PRICE
 ***********************/
 .price {
-  padding: 100px 20px 0 20px;
+  padding: 100px 20px 100px 20px;
+}
+
+@media (max-width: 768px) {
+  .price {
+    padding: 80px 20px 80px 20px;
+  }
 }
 
 .price-items {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 25px;
   margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .price-items {
+    gap: 50px;
+    margin-top: 50px;
+  }
 }
 
 .price-item {
@@ -585,6 +617,13 @@ PRICE
   width: 450px;
   height: 505px;
   border: 3px solid var(--gold);
+}
+
+@media (max-width: 768px) {
+  .price-item {
+    width: 420px;
+    height: 505px;
+  }
 }
 
 .card-title {
@@ -634,11 +673,26 @@ CONTACTS
   background-position: center center;
 }
 
+@media (max-width: 768px) {
+  .contacts  {
+    height: 600px;
+    background-size: auto 600px;
+  }
+}
+
 .contacts-container {
   margin-top: 60px;
   margin-right: 20px;
   width: 450px;
   height: 445px;
+}
+
+@media (max-width: 768px) {
+  .contacts-container {
+    margin: 60px auto;
+    width: 450px;
+    height: 445px;
+  }
 }
 
 .contacts-title {
@@ -649,6 +703,15 @@ CONTACTS
   font-size: 40px;
   line-height: 80px;
   color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .contacts-title {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 64px;
+    text-align: center;
+  }
 }
 
 .contacts-form {
@@ -713,6 +776,12 @@ CONTACTS
   font-size: 20px;
   line-height: 40px;
   color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .contacts .btn {
+    align-self: center;
+  }
 }
 
 
