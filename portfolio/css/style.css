@@ -801,6 +801,13 @@ FOOTER
   height: 150px;
 }
 
+@media (max-width: 768px) {
+  .footer-container{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .footer-data {
   display: flex;
   justify-content: start;
