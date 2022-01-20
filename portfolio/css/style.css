@@ -792,6 +792,14 @@ FOOTER
   height: 150px;
 }
 
+@media (max-width: 768px) {
+  .footer {
+    padding: 28px;
+    height: 190px;
+    background-color: #fff;
+  }
+}
+
 .footer-container {
   position: relative;
   display: flex;
@@ -802,9 +810,17 @@ FOOTER
 }
 
 @media (max-width: 768px) {
-  .footer-container{
+  .footer-container {
+    position: static;
+    display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin: 0 auto;
+    padding: 0;
+    width: 210px;
+    height: 134px;
+    background-color: #000;
   }
 }
 
@@ -812,12 +828,30 @@ FOOTER
   display: flex;
   justify-content: start;
   gap: 20px;
-  height: 50px;
-  font-family: inherit;
+  font-family: Inter;
   font-weight: 400;
   font-size: 20px;
   line-height: 50px;
   color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .footer-data {
+    justify-content: center;
+    width: 210px;
+    font-size: 20px;
+    line-height: 24px;
+    background-color: #999;
+  }
+
+  .footer-copyright {
+    transform: translateX(-3px);
+  }
+
+  .footer-year {
+    transform: translateX(-3px);
+
+  }
 }
 
 .footer-github {
@@ -831,8 +865,7 @@ FOOTER
 }
 
 .footer-rss {
-  height: 50px;
-  font-family: inherit;
+  font-family: Inter;
   font-size: 20px;
   line-height: 50px;
   text-decoration: none;
@@ -841,6 +874,16 @@ FOOTER
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .footer-rss {
+    position: static;
+    transform: translateX(-2px);
+    transform: translateY(-2px);
+    line-height: 24px;
+    background-color: #333;
+  }
 }
 
 .footer-rss:hover {
@@ -857,6 +900,14 @@ FOOTER
   margin: 0 0 0 auto;
   padding: 0;
   list-style: none;
+}
+
+@media (max-width: 768px) {
+  .social-list {
+    justify-content: center;
+    margin: auto;
+    background-color: #999;
+  }
 }
 
 .social-item {
