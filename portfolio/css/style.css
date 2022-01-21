@@ -234,19 +234,20 @@ BURGER
   }
   
   .header__navigation {
-    display: none;
-  }
-
-  .header__navigation.open {
     display: block;
     position: absolute;
     padding: 134px 0 0 127px;
     width: 620px;
     height: 1024px;
     top: 0;
-    right: 0;
+    right: -620px;
     background-color: #000;
     color: fff;
+    transition: all 2s;
+}
+
+  .header__navigation.open {
+    right: 0;
   }
 
   .nav {
@@ -265,12 +266,18 @@ BURGER
     margin: 0;
     padding: 0;
   }
-  
+
   .nav-link {
     font-family: Inter, sans-serif;
     font-size: 35px;
     line-height: 72px;
     text-decoration: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .header__navigation.open {
+    width: 100%;
   }
 }
 
@@ -305,6 +312,12 @@ HERO
 @media (max-width: 768px) {
   .hero__content {
     width: 390px;
+  }
+}
+
+@media (max-width: 460px) {
+  .hero__content {
+    width: 90%;
   }
 }
 
