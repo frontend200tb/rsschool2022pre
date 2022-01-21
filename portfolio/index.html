@@ -12,13 +12,12 @@
 <body>
   <header class="header">
     <div class="container">
-      <div class="header-container">
+      <div class="header__content">
 
-        <div class="logo">
-        </div>
+        <a href='#' class="logo"></a>
 
-        <nav class="nav">
-          <ul class="nav-list">
+        <nav class="header__navigation" id="nav-menu">
+          <ul class="nav">
             <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
             <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
             <li class="nav-item"><a class="nav-link" href="#video">Video</a></li>
@@ -27,12 +26,17 @@
           </ul>
         </nav>
 
-        <div class="switch-lng">
-          <a class="switch-en" href="#">en</a>
+        <div class="header__switch">
+          <a class="switch switch_gold" href="#">en</a>
           <span class="switch-div">/</span>
-          <a class="switch-ru" href="#">ru</a>
+          <a class="switch switch-ru" href="#">ru</a>
         </div>
 
+        <button class="burger-menu" id="nav-burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </header>
@@ -41,10 +45,10 @@
   <main class="main">
     <div class="container">
       <section class="hero">
-        <div class="hero-container">
+        <div class="hero__content">
           <h1 class="hero-title">Alexa Rise</h1>
           <div class="hero-text">Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise</div>
-          <div><button class="btn btn-gold">Hire me</button></div>
+          <div><button class="btn btn_gold">Hire me</button></div>
         </div>
       </section>
 
@@ -86,10 +90,10 @@
         </div>
 
         <div class="portfolio-btns">
-          <button class="btn btn-black">Winter</button>
-          <button class="btn btn-black">Spring</button>
-          <button class="btn btn-black">Summer</button>
-          <button class="btn btn-gold">Autumn</button>
+          <button class="btn btn_black">Winter</button>
+          <button class="btn btn_black">Spring</button>
+          <button class="btn btn_black">Summer</button>
+          <button class="btn btn_gold">Autumn</button>
         </div>
 
         <div class="portfolio-items">
@@ -134,7 +138,7 @@
             </div>
 
             <div class="card-btn">
-              <button class="btn btn-gold">Order shooting</button>
+              <button class="btn btn_gold">Order shooting</button>
             </div>
           </div>
 
@@ -152,7 +156,7 @@
             </div>
 
             <div class="card-btn">
-              <button class="btn btn-gold">Order shooting</button>
+              <button class="btn btn_gold">Order shooting</button>
             </div>
           </div>
 
@@ -170,7 +174,7 @@
             </div>
 
             <div class="card-btn">
-              <button class="btn btn-gold">Order shooting</button>
+              <button class="btn btn_gold">Order shooting</button>
             </div>
           </div>
         </div>
@@ -185,7 +189,7 @@
             <input class="contacts-email" type="email" placeholder="E-mail">
             <input class="contacts-tel" type="tel" placeholder="Phone">
             <textarea class="contacts-message" name="message" cols="30" rows="10" placeholder="Message"></textarea>
-            <button class="btn btn-gold">Send message</button>
+            <button class="btn btn_gold">Send message</button>
           </form>
         </div>
       </section>
