@@ -360,16 +360,13 @@ HERO
   line-height: 40px;
   border: 2px solid var(--gold);
   transition: color 0.5s;
+  cursor: pointer;
+  color: var(--bg-dark);
+  background-color: var(--gold);
 }
 
 .btn:hover {
-  cursor: pointer;
   color: var(--white);
-}
-
-.btn_gold {
-  color: var(--bg-dark);
-  background-color: var(--gold);
 }
 
 
@@ -530,12 +527,29 @@ PORTFOLIO
   }
 }
 
-.btn_black {
+.portfolio-btn {
+  width: 220px;
+  height: 55px;
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 40px;
+  border: 2px solid var(--gold);
+  transition: color 0.5s;
   color: var(--gold);
   background-color: var(--bg-dark);
+  cursor: pointer;
 }
 
-.portfolio-items {
+.portfolio-btn:hover {
+  color: var(--white);
+}
+
+.btn_gold {
+  color: var(--bg-dark);
+  background-color: var(--gold);
+}
+
+.portfolio-imgs {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
