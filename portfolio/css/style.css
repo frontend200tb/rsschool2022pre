@@ -64,6 +64,8 @@ HEADER
   }
 }
 
+
+/*** Header - Logo ***/
 .logo {
   width: 50px;
   height: 50px;
@@ -78,10 +80,13 @@ HEADER
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
 }
+/*** end Header - Logo ***/
 
+
+/*** Header - Navigation ***/
 .header__navigation {
   margin: 0 0 0 auto;
-  width: 500px;
+  width: 550px;
   height: 50px;
 }
 
@@ -118,59 +123,10 @@ HEADER
 .nav-link:hover {
   color: var(--gold);  
 }
-
-.header__switch {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  gap: 10px;
-  width: 70px;
-  font-size: 20px;
-  line-height: 50px;
-  color: var(--white);
-  font-family: 'Inter';
-  font-weight: 700;
-}
-
-@media (max-width: 768px) {
-  .header__switch {
-    display: flex;
-    flex-direction: row;
-    margin: 0 2px 0 auto;
-    width: 100px;
-  }
-
-}
+/*** end Header - Navigation ***/
 
 
-.switch {
-  text-decoration: none;
-  color: var(--white);
-  transition: color 0.5s;
-}
-
-.switch:hover {
-  color: var(--gold);
-}
-
-.switch_gold {
-  color: var(--gold);
-}
-
-.switch-div {
-  margin: 0 0px;
-}
-
-@media (max-width: 768px) {
-  .switch-div {
-    margin-right: 9px;
-  }
-}
-
-
-/***********************
-BURGER
-***********************/
+/*** Header - Burger ***/
 .burger-menu {
   display: none;
 }
@@ -243,7 +199,7 @@ BURGER
     right: -620px;
     background-color: #000;
     color: fff;
-    transition: all 2s;
+    transition: all 1s;
 }
 
   .header__navigation.open {
@@ -280,7 +236,47 @@ BURGER
     width: 100%;
   }
 }
+/*** end Header - Burger ***/
 
+
+/*** Header - Lang ***/
+.header__lang {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 10px;
+  width: 70px;
+  font-size: 20px;
+  line-height: 50px;
+  color: var(--white);
+  font-family: 'Inter';
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .header__lang {
+    display: flex;
+    flex-direction: row;
+    margin: 0 2px 0 auto;
+    width: 100px;
+  }
+
+}
+
+.lang {
+  color: var(--white);
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+.lang:hover {
+  color: var(--gold);
+}
+
+.lang-active {
+  color: var(--gold);
+}
+/*** end Header - Switch ***/
 
 
 /***********************
@@ -332,7 +328,7 @@ HERO
 
 @media (max-width: 768px) {
   .hero-title {
-    width: 165px;
+    width: 170px;
     font-weight: 400;
     font-size: 32px;
     line-height: 64px;
