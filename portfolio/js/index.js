@@ -94,6 +94,7 @@ function changeLangClassActive(event) {
   event.target.classList.add('lang-active');
 }
 
+lang.addEventListener('click', (ru) => getTranslateRu);
 langRu.addEventListener('click', getTranslateRu);
 langEn.addEventListener('click', getTranslateEn);
 langRu.addEventListener('click', changeLangClassActive);
