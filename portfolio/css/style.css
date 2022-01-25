@@ -235,18 +235,20 @@ BURGER
   
   .header__navigation {
     display: block;
-    position: absolute;
+    position: fixed;
     padding: 134px 0 0 127px;
-    width: 620px;
+    width: 81%;
     height: 1024px;
     top: 0;
     right: -620px;
     background-color: #000;
     color: fff;
     transition: all 2s;
+    overflow-x: hidden;
 }
 
   .header__navigation.open {
+    position: absolute;
     right: 0;
   }
 
@@ -275,7 +277,7 @@ BURGER
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 619px) {
   .header__navigation.open {
     width: 100%;
   }
