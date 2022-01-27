@@ -191,7 +191,7 @@ HEADER
   
   .header__navigation {
     display: block;
-    position: absolute;
+    position: fixed;
     padding: 134px 0 0 127px;
     width: 620px;
     height: 1024px;
@@ -203,6 +203,7 @@ HEADER
 }
 
   .header__navigation.open {
+    position: absolute;
     right: 0;
   }
 
@@ -231,7 +232,7 @@ HEADER
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 619px) {
   .header__navigation.open {
     width: 100%;
   }
@@ -730,6 +731,12 @@ CONTACTS
     margin: 60px auto;
     width: 450px;
     height: 445px;
+  }
+}
+
+@media (max-width: 450px) {
+  .contacts-container {
+    width: 100%;
   }
 }
 

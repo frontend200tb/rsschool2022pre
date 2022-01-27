@@ -66,39 +66,32 @@ Translate internationalization
 *******************/
 import i18Obj from './translate.js';
 
-const lang = document.querySelectorAll('.lang');
-const langRu = document.querySelector('.ru');
-const langEn = document.querySelector('.en');
+const langs = document.querySelectorAll('.lang');
 const langElements = document.querySelectorAll('[data-i18]');
 
-function getTranslateRu () {
-  langElements.forEach((elem) => {
-    let k = elem.dataset.i18;
-    elem.textContent = i18Obj.ru[k];
-    console.log(elem, i18Obj.ru[k], k);
+langs.forEach((elem) => {
+  elem.addEventListener('click', (e) => {
+    getTranslate(e.target.dataset.lang);
   });
-}
+  elem.addEventListener('click', changeLangClassActive);
+})
 
-function getTranslateEn () {
+
+function getTranslate(ln) {
   langElements.forEach((elem) => {
     let k = elem.dataset.i18;
-    elem.textContent = i18Obj.en[k];
-    console.log(elem, i18Obj.en[k], k);
+    elem.textContent = i18Obj[ln][k];
   });
 }
 
 function changeLangClassActive(event) {
-  lang.forEach((elem) => {
+  langs.forEach((elem) => {
     elem.classList.remove('lang-active');
   });
   event.target.classList.add('lang-active');
 }
 
-lang.addEventListener('click', (ru) => getTranslateRu);
-langRu.addEventListener('click', getTranslateRu);
-langEn.addEventListener('click', getTranslateEn);
-langRu.addEventListener('click', changeLangClassActive);
-langEn.addEventListener('click', changeLangClassActive);
 
 
 console.log('Вёрстка соответствует макету +48\nНи на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +15\nНа ширине экрана 768рх и меньше реализовано адаптивное меню +22');
+
