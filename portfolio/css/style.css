@@ -12,7 +12,7 @@ html {
   scroll-behavior: smooth; 
 }
 
-body {
+.page {
   margin: 0;
   padding: 0;
   font-family: 'Inter', Verdana, sans-serif;
@@ -21,10 +21,10 @@ body {
   background-color: var(--bg-dark);
 }
 
-.light-theme {
+.page.light-theme {
   background-color: #fff;
   color: #000;
-}
+} */
 
 .container {
   margin: 0 auto;
@@ -288,8 +288,16 @@ HEADER
   background-image: url('../assets/svg/sun.svg');
   background-size: contain;
   background-repeat: no-repeat;  
-  transition: filter 0.5s;
+  transition: all 0.5s;
 }
+
+.theme.light-theme {
+  margin: auto 22.5px;
+  width: 40px;
+  height: 40px;
+  background-image: url('../assets/svg/moon.svg');
+}
+
 
 .theme:hover {
   cursor: pointer;

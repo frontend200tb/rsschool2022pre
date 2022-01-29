@@ -96,7 +96,13 @@ function changeLangClassActive(event) {
 Theme
 *******************/
 const theme = document.querySelector('.theme');
+const page = document.querySelector('.page');
+
+theme.addEventListener('click', function() {
+  theme.classList.toggle('light-theme');
+  page.classList.toggle('light-theme');
+})
 
 
-console.log('Вёрстка соответствует макету +48\nНи на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +15\nНа ширине экрана 768рх и меньше реализовано адаптивное меню +22');
+console.log('Total points 85\nСмена изображений в секции portfolio +25\nПеревод страницы на два языка +25\nПереключение светлой и тёмной темы +25\nДополнительный функционал +10');
 
