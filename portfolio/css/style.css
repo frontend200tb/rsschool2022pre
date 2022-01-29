@@ -21,6 +21,11 @@ body {
   background-color: var(--bg-dark);
 }
 
+.light-theme {
+  background-color: #fff;
+  color: #000;
+}
+
 .container {
   margin: 0 auto;
   width: 1440px;
@@ -52,15 +57,11 @@ HEADER
   display: flex;
   flex-direction: row;
   padding: 20px;
-  background: url('../assets/img/header-bg.jpg');
-  background-repeat: no-repeat;
-  background-position: center 0;
 }
 
 @media (max-width: 768px) {
   .header__content {
     padding: 20px 64px 0 60px;
-    background-size: cover;
   }
 }
 
@@ -278,6 +279,23 @@ HEADER
   color: var(--gold);
 }
 /*** end Header - Switch ***/
+
+/*** Header - Theme ***/
+.theme {
+  margin: auto 20px;
+  width: 45px;
+  height: 45px;
+  background-image: url('../assets/svg/sun.svg');
+  background-size: contain;
+  background-repeat: no-repeat;  
+  transition: filter 0.5s;
+}
+
+.theme:hover {
+  cursor: pointer;
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
 
 
 /***********************
