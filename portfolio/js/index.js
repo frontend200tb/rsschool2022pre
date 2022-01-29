@@ -158,5 +158,18 @@ if (currentLang == 'ru') {
 }
 
 
+/*******************
+Button Effects
+*******************/
+const btns = document.querySelectorAll('button');
+
+btns.forEach((elem) => {
+  elem.addEventListener('click', (e) => {
+    console.log('клик по кнопке', elem);
+    elem.classList.add('btn-click'), setTimeout(() => elem.classList.remove('btn-click'), 500);
+  });
+})
+
+
 console.log('Total points 85\nСмена изображений в секции portfolio +25\nПеревод страницы на два языка +25\nПереключение светлой и тёмной темы +25\nДополнительный функционал +10');
 
