@@ -113,24 +113,24 @@ theme.addEventListener('click', function() {
 /*******************
 Local Storage
 *******************/
-  // Допустим, тема светлая
-  let theme = "light";
-  // Если <body> содержит класс .dark-theme…
-  if (page.classList.contains("dark-theme")) {
-    // …тогда делаем тему тёмной
-    theme = "dark";
+  // Допустим, тема темная
+  let themePortfolio = "dark";
+  // Если page содержит класс .light-theme
+  if (page.classList.contains("light-theme")) {
+    // тогда делаем тему светлой
+    themePortfolio = "light";
   }
   // После чего сохраняем выбор в localStorage
-  localStorage.setItem("theme", theme);
-});
+  localStorage.setItem("themePortfolio", themePortfolio);
+
 
 
 // Выбираем настройки темы из localStorage
-const currentTheme = localStorage.getItem('theme');
-// Если текущая тема в localStorage равна "dark"…
-if (currentTheme == 'dark') {
-  // …тогда мы используем класс .dark-theme
-  page.classList.add("dark-theme");
+const currentTheme = localStorage.getItem('themePortfolio');
+// Если текущая тема в localStorage равна "light"
+if (currentTheme == 'light') {
+  // тогда мы используем класс .light-theme
+  page.classList.add("light-theme");
 }
 
 console.log('Total points 85\nСмена изображений в секции portfolio +25\nПеревод страницы на два языка +25\nПереключение светлой и тёмной темы +25\nДополнительный функционал +10');
