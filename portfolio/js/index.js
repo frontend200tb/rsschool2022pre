@@ -97,32 +97,27 @@ Theme
 *******************/
 const theme = document.querySelector('.theme');
 const page = document.querySelector('.page');
-const logo = document.querySelector('.logo');
-const hero = document.querySelector('.hero');
-const contacts = document.querySelector('.contacts');
 
 theme.addEventListener('click', function() {
   theme.classList.toggle('light-theme');
   page.classList.toggle('light-theme');
-  logo.classList.toggle('light-theme');
-  hero.classList.toggle('light-theme');
-  contacts.classList.toggle('light-theme');
 })
 
 
 /*******************
-Local Storage
+Local Storage - Theme
 *******************/
+theme.addEventListener('click', function() {
   // Допустим, тема темная
   let themePortfolio = "dark";
-  // Если page содержит класс .light-theme
-  if (page.classList.contains("light-theme")) {
+  // Если theme содержит класс .light-theme
+  if (theme.classList.contains("light-theme")) {
     // тогда делаем тему светлой
     themePortfolio = "light";
   }
-  // После чего сохраняем выбор в localStorage
+  // После чего сохраняем тему в localStorage
   localStorage.setItem("themePortfolio", themePortfolio);
-
+});
 
 
 // Выбираем настройки темы из localStorage
@@ -130,8 +125,38 @@ const currentTheme = localStorage.getItem('themePortfolio');
 // Если текущая тема в localStorage равна "light"
 if (currentTheme == 'light') {
   // тогда мы используем класс .light-theme
-  page.classList.add("light-theme");
+  theme.classList.toggle('light-theme');
+  page.classList.toggle('light-theme');
 }
+
+
+/*******************
+Local Storage - Language
+*******************/
+langs.forEach((elem) => {
+  elem.addEventListener('click', (e) => {
+  // Допустим, язык английский
+  let langPortfolio = 'en';
+  langPortfolio = e.target.dataset.lang;
+  // После чего сохраняем язык в localStorage
+  localStorage.setItem("langPortfolio", langPortfolio);
+  })
+})
+
+// Выбираем настройки языка из localStorage
+const currentLang = localStorage.getItem('langPortfolio');
+// Если текущий язык в localStorage равен "ru"
+if (currentLang == 'ru') {
+  // Переводим страницу на русский
+  langElements.forEach((elem) => {
+    let k = elem.dataset.i18;
+    elem.textContent = i18Obj[currentLang][k];
+  });
+  // Изменяем активный класс языка
+  langs[0].classList.remove('lang-active');
+  langs[1].classList.add('lang-active');
+}
+
 
 console.log('Total points 85\nСмена изображений в секции portfolio +25\nПеревод страницы на два языка +25\nПереключение светлой и тёмной темы +25\nДополнительный функционал +10');
 
