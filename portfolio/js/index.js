@@ -35,9 +35,9 @@ function changeImage(event) {
 
 function changeClassActive(event) {
   portfolioBtn.forEach((elem) => {
-    elem.classList.remove('btn_gold');
+    elem.classList.remove('btn_active');
   });
-  event.target.classList.add('btn_gold');
+  event.target.classList.add('btn_active');
 }
 
 portfolioBtns.addEventListener('click', changeImage);
@@ -109,6 +109,29 @@ theme.addEventListener('click', function() {
   contacts.classList.toggle('light-theme');
 })
 
+
+/*******************
+Local Storage
+*******************/
+  // Допустим, тема светлая
+  let theme = "light";
+  // Если <body> содержит класс .dark-theme…
+  if (page.classList.contains("dark-theme")) {
+    // …тогда делаем тему тёмной
+    theme = "dark";
+  }
+  // После чего сохраняем выбор в localStorage
+  localStorage.setItem("theme", theme);
+});
+
+
+// Выбираем настройки темы из localStorage
+const currentTheme = localStorage.getItem('theme');
+// Если текущая тема в localStorage равна "dark"…
+if (currentTheme == 'dark') {
+  // …тогда мы используем класс .dark-theme
+  page.classList.add("dark-theme");
+}
 
 console.log('Total points 85\nСмена изображений в секции portfolio +25\nПеревод страницы на два языка +25\nПереключение светлой и тёмной темы +25\nДополнительный функционал +10');
 
