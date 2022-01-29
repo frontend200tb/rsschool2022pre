@@ -97,10 +97,16 @@ Theme
 *******************/
 const theme = document.querySelector('.theme');
 const page = document.querySelector('.page');
+const logo = document.querySelector('.logo');
+const hero = document.querySelector('.hero');
+const contacts = document.querySelector('.contacts');
 
 theme.addEventListener('click', function() {
   theme.classList.toggle('light-theme');
   page.classList.toggle('light-theme');
+  logo.classList.toggle('light-theme');
+  hero.classList.toggle('light-theme');
+  contacts.classList.toggle('light-theme');
 })
 
 
