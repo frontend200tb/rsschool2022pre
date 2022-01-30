@@ -171,5 +171,19 @@ btns.forEach((elem) => {
 })
 
 
+
+/*******************
+Real Video
+*******************/
+
+const play = document.querySelector(".play");
+const picture = document.querySelector(".video-player");
+const video = document.querySelector(".real-video");
+play.addEventListener("click", ()=>{
+  picture.classList.add("hide");
+  video.classList.remove("hide");
+  video.play();
+})
+
 console.log('Total points 85\nСмена изображений в секции portfolio +25\nПеревод страницы на два языка +25\nПереключение светлой и тёмной темы +25\nДополнительный функционал +10');
 
