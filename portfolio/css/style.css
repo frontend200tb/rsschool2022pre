@@ -691,6 +691,11 @@ PORTFOLIO
 .portfolio-img {
   width: 450px;
   height: 560px;
+  transition: 1s;
+}
+
+.portfolio-img:hover {
+  transform: scale(1.03);
 }
 
 @media (max-width: 450px) {
@@ -809,6 +814,11 @@ PRICE
   width: 450px;
   height: 505px;
   border: 3px solid var(--gold);
+  transition: 1s;  
+}
+
+.price-item:hover {
+  transform: scale(1.03);
 }
 
 @media (max-width: 768px) {
