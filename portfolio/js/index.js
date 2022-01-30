@@ -23,11 +23,11 @@ for (let i = 0; i < navItems.length; i++) {
 Portfolio change images
 *******************/
 const portfolioBtns = document.querySelector('.portfolio-btns');
-const portfolioBtn = document.querySelectorAll('.portfolio-btn');
+const portfolioBtn = document.querySelectorAll('.btn-portfolio');
 const portfolioImages = document.querySelectorAll('.portfolio-img');
 
 function changeImage(event) {
-  if(event.target.classList.contains('portfolio-btn')) {
+  if(event.target.classList.contains('btn-portfolio')) {
     let season = event.target.dataset.season;
     portfolioImages.forEach((img, index) => img.src = `assets/img/${season}/${index + 1}.jpg`);
   }
@@ -81,6 +81,10 @@ function getTranslate(ln) {
   langElements.forEach((elem) => {
     let k = elem.dataset.i18;
     elem.textContent = i18Obj[ln][k];
+    if (elem.placeholder) {
+      elem.placeholder = i18Obj[ln][elem.dataset.i18];
+      elem.textContent = '';
+    }
   });
 }
 
@@ -161,15 +165,28 @@ if (currentLang == 'ru') {
 /*******************
 Button Effects
 *******************/
-const btns = document.querySelectorAll('button');
+const btn = document.querySelectorAll('.btn');
+  
+btn.forEach((x,i)=>{x.addEventListener('click', function (e) {
+const x = e.clientX
+const y = e.clientY
 
-btns.forEach((elem) => {
-  elem.addEventListener('click', (e) => {
-    console.log('клик по кнопке', elem);
-    elem.classList.add('btn-click'), setTimeout(() => elem.classList.remove('btn-click'), 500);
-  });
-})
+const buttonTop = e.target.getBoundingClientRect().y
+const buttonLeft = e.target.getBoundingClientRect().x
 
+
+const xInside = (x - buttonLeft)
+const yInside = (y - buttonTop)
+
+const circle = document.createElement('span')
+circle.classList.add('circle')
+circle.style.top = yInside + 'px'
+circle.style.left = xInside + 'px'
+
+this.appendChild(circle)
+
+setTimeout(() => circle.remove(), 700)
+})})
 
 
 /*******************
