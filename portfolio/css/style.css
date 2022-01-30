@@ -619,7 +619,7 @@ SKILLS
 PORTFOLIO
 ***********************/
 .portfolio {
-  padding: 100px 20px 0 20px;
+  padding: 100px 0 0 0;
 }
 
 @media (max-width: 768px) {
@@ -693,6 +693,13 @@ PORTFOLIO
   height: 560px;
 }
 
+@media (max-width: 450px) {
+  .portfolio-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 
 /***********************
 VIDEO
@@ -718,6 +725,10 @@ VIDEO
   background-image: url('../assets/img/video-bg.jpg');
   background-position: 0;
   background-size: auto 705px;
+}
+
+.video-player.hide {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -754,6 +765,13 @@ VIDEO
     contrast(87%);
 }
 
+.real-video {
+  display: block;
+  width: 100%;
+}
+.real-video.hide {
+  display: none;
+}
 
 /***********************
 PRICE
