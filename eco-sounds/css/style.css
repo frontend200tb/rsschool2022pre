@@ -10,3 +10,32 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.page {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+.container {
+margin: 0 auto;
+width: 1200px;
+background-color: #333;;
+}
+
+.header {
+  height: 80px;
+  background-color: #555;
+}
+
+.main {
+  height: 400px;
+  background-color: #999;
+}
+
+.footer {
+  height: 80px;
+  background-color: #333;
+}
