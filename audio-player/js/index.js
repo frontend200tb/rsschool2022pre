@@ -43,4 +43,31 @@ const clickPlay = (e) => {
   changePlayBtn();
 }
 
+//функция для настройки громкости
+const changeVolume = () => { 
+  audio.volume = volumeRange.value/100;
+  volumeNum.innerHTML = volumeRange.value;
+  if(volumeRange.value === 0) { 
+     speakerBtn.src="assets/svg/mute.svg"
+  }
+};
+
+//функция для вкл/выкл громкости
+speakerBtn.onclick = function () {
+
+  if(volumeRange.value === 0) {
+    volumeRange.value = 50; audio.volume = 1;
+    speakerBtn.src="assets/svg/speaker.svg"
+    valumeNum.innerHTML = volumeRange.value;
+  }
+  else {
+    volumeRange.value=0; audio.volume=0;
+    speakerBtn.src="assets/svg/mute.svg"
+    volumeNum.innerHTML = volumeRange.value;
+  }
+}
+
+// Клик на кнопке play
 playBtn.addEventListener('click', clickPlay);
+// Изменение регулятора громкости
+volumeRange.addEventListener('change', changeVolume);
