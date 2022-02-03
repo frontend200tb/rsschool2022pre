@@ -23,10 +23,12 @@ console.log ('title', title);
 console.log ('rightBtn', rightBtn);
 
 let isPlay = false;
+let currentVolume = 100;
 
 const play = () => audio.play();
 const pause = () => audio.pause();
-const changePlayBtn = (e) => playBtn.classList.toggle('pause');
+const changePlayBtn = () => playBtn.classList.toggle('pause');
+const changeSpeakerBtn = () => speakerBtn.classList.toggle('mute');
 
 
 // Клик на кнопке play
@@ -42,34 +44,40 @@ const clickPlay = (e) => {
   changePlayBtn();
 }
 
-// Изменение регулятора громкости
-const changeVolume = () => { 
-  audio.volume = volumeRange.value/100;
-  volumeNum.innerHTML = volumeRange.value;
-  if(volumeRange.value == 0) { 
-     speakerBtn.src="assets/svg/mute.svg"
-  }
-};
-
 // Клик на кнопке вкл/выкл громкости
 const clickVolume = () => {
 
   if (volumeRange.value == 0) {
-    volumeRange.value = 50; audio.volume = 1;
-    speakerBtn.src = "assets/svg/speaker.svg";
+    volumeRange.value = currentVolume; 
+    audio.volume = 1;
     volumeNum.innerHTML = volumeRange.value;
   }
   else {
-    volumeRange.value = 0; audio.volume = 0;
-    speakerBtn.src = "assets/svg/mute.svg";
+    currentVolume = volumeRange.value;
+    volumeRange.value = 0; 
+    audio.volume = 0;
     volumeNum.innerHTML = volumeRange.value;
   }
+
+  changeSpeakerBtn();
 }
+
+// Изменение регулятора громкости
+const changeVolume = () => { 
+  audio.volume = volumeRange.value/100;
+  volumeNum.innerHTML = volumeRange.value;
+  if(volumeRange.value == 0 && !speakerBtn.classList.contains('mute')) { 
+    speakerBtn.classList.add('mute');
+  }
+  if(volumeRange.value != 0 && speakerBtn.classList.contains('mute')) { 
+    speakerBtn.classList.remove('mute');
+  }
+};
 
 
 // Клик на кнопке play
 playBtn.addEventListener('click', clickPlay);
-// Изменение регулятора громкости
-volumeRange.addEventListener('change', changeVolume);
 // Клик на кнопке вкл/выкл громкости
 speakerBtn.addEventListener('click', clickVolume);
+// Изменение регулятора громкости
+volumeRange.addEventListener('change', changeVolume);

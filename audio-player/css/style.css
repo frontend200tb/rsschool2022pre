@@ -92,7 +92,13 @@ CARD PLAYER
 
 .speaker-btn {
   width: 40px;
+  height: 40px;
   cursor: pointer;
+  background-image: url(../assets/svg/speaker.svg);
+}
+
+.speaker-btn.mute {
+  background-image: url(../assets/svg/mute.svg);
 }
 
 .volume-num {
