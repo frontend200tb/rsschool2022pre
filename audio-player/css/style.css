@@ -74,8 +74,9 @@ CARD PLAYER
   background-image: url(../assets/svg/pause.svg);
 }
 
-.play-time {
-  width: 50px;
+.time {
+  text-align: center;
+  font-size: 14px;
 }
 
 .current-time {

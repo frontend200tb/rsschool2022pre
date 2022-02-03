@@ -4,6 +4,7 @@ const audio = document.querySelector('.audio');
 const playBtn = document.querySelector('.play-btn');
 const playTime = document.querySelector('.play-time');
 const currentTime = document.querySelector('.current-time');
+const trackTime = document.querySelector('.track-time');
 const speakerBtn = document.querySelector('.speaker-btn');
 const volumeNum = document.querySelector('.volume-num');
 const volumeRange = document.querySelector('.volume-range');
@@ -73,6 +74,51 @@ const changeVolume = () => {
     speakerBtn.classList.remove('mute');
   }
 };
+
+//Время равно времени трека
+audio.onloadedmetadata = function () {
+  currentTime.max = audio.duration;
+  let sec_num = audio.duration;
+  let hours   = Math.floor(sec_num / 3600);
+  let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+  let seconds = sec_num - (hours * 3600) - (minutes * 60);
+  if (hours < 10) {
+    hours   = "0"+hours;
+  }
+  if (minutes < 10) {
+    minutes = "0"+minutes;
+  }
+  if (seconds < 10) { seconds = "0"+seconds; } 
+
+  trackTime.innerHTML = minutes + ':' + Math.floor(seconds); 
+};
+
+//функция вывода текущего времени воспроизведения
+audio.ontimeupdate = function () {
+
+    var sec_num = audio.currentTime;
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+    seconds=Math.round(seconds);
+
+    if (hours < 10) {
+      hours   = "0"+hours;
+    }
+    if (minutes < 10) {
+      minutes = "0"+minutes;
+    }
+    if (seconds < 10) { seconds = "0"+seconds; } playTime.innerHTML = minutes+':'+seconds; 
+    if(audio.classList.contains("isPlay")) currentTime.value = audio.currentTime; 
+};
+
+//функция для установки начала воспроизведения
+currentTime.onchange=function() { 
+
+  audio.pause(); audio.currentTime = currentTime.value; audio.play(); 
+};
+
+console.log(audio);
 
 
 // Клик на кнопке play
