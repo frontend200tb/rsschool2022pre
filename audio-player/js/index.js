@@ -32,6 +32,9 @@ const changePlayBtn = () => playBtn.classList.toggle('pause');
 const changeSpeakerBtn = () => speakerBtn.classList.toggle('mute');
 
 
+/*******************
+Кнопка Play и время
+*******************/
 // Клик на кнопке play
 const clickPlay = (e) => {
   if (isPlay === false) {
@@ -45,35 +48,9 @@ const clickPlay = (e) => {
   changePlayBtn();
 }
 
-// Клик на кнопке вкл/выкл громкости
-const clickVolume = () => {
+// Клик на кнопке play
+playBtn.addEventListener('click', clickPlay);
 
-  if (volumeRange.value == 0) {
-    volumeRange.value = currentVolume; 
-    audio.volume = 1;
-    volumeNum.innerHTML = volumeRange.value;
-  }
-  else {
-    currentVolume = volumeRange.value;
-    volumeRange.value = 0; 
-    audio.volume = 0;
-    volumeNum.innerHTML = volumeRange.value;
-  }
-
-  changeSpeakerBtn();
-}
-
-// Изменение регулятора громкости
-const changeVolume = () => { 
-  audio.volume = volumeRange.value/100;
-  volumeNum.innerHTML = volumeRange.value;
-  if(volumeRange.value == 0 && !speakerBtn.classList.contains('mute')) { 
-    speakerBtn.classList.add('mute');
-  }
-  if(volumeRange.value != 0 && speakerBtn.classList.contains('mute')) { 
-    speakerBtn.classList.remove('mute');
-  }
-};
 
 //Время равно времени трека
 audio.onloadedmetadata = function () {
@@ -121,9 +98,49 @@ currentTime.onchange=function() {
 console.log(audio);
 
 
-// Клик на кнопке play
-playBtn.addEventListener('click', clickPlay);
+/*******************
+Кнопка и регулятор громкости
+*******************/
+// Клик на кнопке вкл/выкл громкости
+const clickVolume = () => {
+
+  if (volumeRange.value == 0) {
+    volumeRange.value = currentVolume; 
+    audio.volume = 1;
+    volumeNum.innerHTML = volumeRange.value;
+  }
+  else {
+    currentVolume = volumeRange.value;
+    volumeRange.value = 0; 
+    audio.volume = 0;
+    volumeNum.innerHTML = volumeRange.value;
+  }
+
+  changeSpeakerBtn();
+}
+
+// Изменение регулятора громкости
+const changeVolume = () => { 
+  audio.volume = volumeRange.value/100;
+  volumeNum.innerHTML = volumeRange.value;
+  if(volumeRange.value == 0 && !speakerBtn.classList.contains('mute')) { 
+    speakerBtn.classList.add('mute');
+  }
+  if(volumeRange.value != 0 && speakerBtn.classList.contains('mute')) { 
+    speakerBtn.classList.remove('mute');
+  }
+};
+
+
 // Клик на кнопке вкл/выкл громкости
 speakerBtn.addEventListener('click', clickVolume);
 // Изменение регулятора громкости
 volumeRange.addEventListener('change', changeVolume);
+
+
+/*******************
+Смена песни
+*******************/
+import tracks from './tracklist.js';
+
+console.log(tracks);
