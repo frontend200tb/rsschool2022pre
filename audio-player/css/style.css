@@ -54,6 +54,7 @@ CARD PLAYER
   gap: 20px;
 }
 
+/*player-time*/
 .player-time {
   margin-top: 20px;
   display: flex;
@@ -67,10 +68,15 @@ CARD PLAYER
   cursor: pointer;
 }
 
+.play-time {
+  width: 50px;
+}
+
 .current-time {
   width: 150px;
 }
 
+/*player-volume*/
 .player-volume {
   display: flex;
   flex-direction: row;
@@ -83,10 +89,15 @@ CARD PLAYER
   cursor: pointer;
 }
 
-.volume-nam {
+.volume-num {
+  width: 50px;
+}
+
+.volume-range {
   width: 150px;
 }
 
+/*player-controls*/
 .player-controls {
   display: flex;
   flex-direction: row;
