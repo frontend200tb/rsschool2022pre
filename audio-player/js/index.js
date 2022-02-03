@@ -1,6 +1,7 @@
 console.log('start');
 
 const page = document.querySelector('.page');
+const cardPhoto = document.querySelector('.card-photo');
 const audio = document.querySelector('.audio');
 const playBtn = document.querySelector('.play-btn');
 const playTime = document.querySelector('.play-time');
@@ -42,6 +43,7 @@ const clickPlay = (e) => {
   if (isPlay === false) {
     isPlay = true;
     play();
+    getTrackTime();
   } else {
     isPlay = false;
     pause();
@@ -78,8 +80,7 @@ const getTrackTime = () => {
   console.log('time', trackTime.innerHTML);
 };
 
-getTrackTime();
-//audio.addEventListener('onloadedmetadata', getTrackTime);
+audio.addEventListener('onloadedmetadata', getTrackTime);
 
 //функция вывода текущего времени воспроизведения
 audio.ontimeupdate = function () {
@@ -153,15 +154,19 @@ volumeRange.addEventListener('change', changeVolume);
 import tracks from './tracklist.js';
 
 const forward = () => {
+  page.style.backgroundImage = 'url(assets/img/dualipa_dontstartnow.png)';
+  cardPhoto.src = 'assets/img/dualipa_dontstartnow.png';
+  audio.src = 'assets/audio/dualipa_dontstartnow.mp3';
   artist.innerHTML = tracks[1].artist;
   name.innerHTML = tracks[1].name;
-  page.style.backgroundImage = ('url(../assets/img/beyonce_lemonade.png)');
 }
 
 const backward = () => {
+  page.style.backgroundImage = 'url(assets/img/beyonce_lemonade.png)';
+  cardPhoto.src = 'assets/img/beyonce_lemonade.png';
+  audio.src = 'assets/audio/beyonce_donthurtyourself.mp3';
   artist.innerHTML = tracks[0].artist;
   name.innerHTML = tracks[0].name;
-  //page.style.backgroundImage = url(../assets/img/dualipa_dontstartnow.png);
 }
 
 rightBtn.addEventListener('click', forward);
