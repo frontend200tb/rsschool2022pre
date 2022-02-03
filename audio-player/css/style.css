@@ -7,6 +7,7 @@
 .page {
   width: 100vw;
   height: 100vh;
+  font-size: 24px;
   background-image: url(../assets/img/dontstartnow.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -54,19 +55,41 @@ CARD PLAYER
 }
 
 .player-time {
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.player-time {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.play-btn {
+  width: 40px;
+  cursor: pointer;
 }
 
-.player-time {
+.current-time {
+  width: 150px;
+}
+
+.player-volume {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.speaker-btn {
+  width: 40px;
+  cursor: pointer;
+}
+
+.volume-nam {
+  width: 150px;
+}
+
+.player-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
