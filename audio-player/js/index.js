@@ -1,5 +1,6 @@
 console.log('start');
 
+const page = document.querySelector('.page');
 const audio = document.querySelector('.audio');
 const playBtn = document.querySelector('.play-btn');
 const playTime = document.querySelector('.play-time');
@@ -9,19 +10,20 @@ const speakerBtn = document.querySelector('.speaker-btn');
 const volumeNum = document.querySelector('.volume-num');
 const volumeRange = document.querySelector('.volume-range');
 const leftBtn = document.querySelector('.left-btn');
-const title = document.querySelector('.title');
+const artist = document.querySelector('.artist');
+const name = document.querySelector('.name');
 const rightBtn = document.querySelector('.right-btn');
 
-console.log ('audio', audio);
-console.log ('playBtn', playBtn);
-console.log ('playTime', playTime);
-console.log ('currentTime', currentTime);
-console.log ('speakerBtn', speakerBtn);
-console.log ('volumeNum', volumeNum);
-console.log ('volumeRange', volumeRange);
-console.log ('leftBtn', leftBtn);
-console.log ('title', title);
-console.log ('rightBtn', rightBtn);
+// console.log ('audio', audio);
+// console.log ('playBtn', playBtn);
+// console.log ('playTime', playTime);
+// console.log ('currentTime', currentTime);
+// console.log ('speakerBtn', speakerBtn);
+// console.log ('volumeNum', volumeNum);
+// console.log ('volumeRange', volumeRange);
+// console.log ('leftBtn', leftBtn);
+// console.log ('title', title);
+// console.log ('rightBtn', rightBtn);
 
 let isPlay = false;
 let currentVolume = 100;
@@ -53,22 +55,31 @@ playBtn.addEventListener('click', clickPlay);
 
 
 //Время равно времени трека
-audio.onloadedmetadata = function () {
+const getTrackTime = () => {
   currentTime.max = audio.duration;
   let sec_num = audio.duration;
   let hours   = Math.floor(sec_num / 3600);
   let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
   let seconds = sec_num - (hours * 3600) - (minutes * 60);
-  if (hours < 10) {
-    hours   = "0"+hours;
-  }
-  if (minutes < 10) {
-    minutes = "0"+minutes;
-  }
-  if (seconds < 10) { seconds = "0"+seconds; } 
 
-  trackTime.innerHTML = minutes + ':' + Math.floor(seconds); 
+  if (hours < 10) {
+    hours   = "0" + hours;
+  }
+
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  if (seconds < 10) {
+    seconds = "0" + seconds; 
+  } 
+
+  trackTime.innerHTML = minutes + ':' + Math.floor(seconds);
+  console.log('time', trackTime.innerHTML);
 };
+
+getTrackTime();
+//audio.addEventListener('onloadedmetadata', getTrackTime);
 
 //функция вывода текущего времени воспроизведения
 audio.ontimeupdate = function () {
@@ -94,8 +105,6 @@ currentTime.onchange=function() {
 
   audio.pause(); audio.currentTime = currentTime.value; audio.play(); 
 };
-
-console.log(audio);
 
 
 /*******************
@@ -143,4 +152,17 @@ volumeRange.addEventListener('change', changeVolume);
 *******************/
 import tracks from './tracklist.js';
 
-console.log(tracks);
+const forward = () => {
+  artist.innerHTML = tracks[1].artist;
+  name.innerHTML = tracks[1].name;
+  page.style.backgroundImage = ('url(../assets/img/beyonce_lemonade.png)');
+}
+
+const backward = () => {
+  artist.innerHTML = tracks[0].artist;
+  name.innerHTML = tracks[0].name;
+  //page.style.backgroundImage = url(../assets/img/dualipa_dontstartnow.png);
+}
+
+rightBtn.addEventListener('click', forward);
+leftBtn.addEventListener('click', backward);

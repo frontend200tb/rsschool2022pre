@@ -8,7 +8,7 @@
   width: 100vw;
   height: 100vh;
   font-size: 24px;
-  background-image: url(../assets/img/dontstartnow.png);
+  background-image: url(../assets/img/beyonce_lemonade.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
@@ -124,6 +124,10 @@ CARD PLAYER
   width: 40px;
   cursor: pointer;
   transform: rotate(180deg);
+}
+
+.title {
+  font-size: 20px;
 }
 
 .right-btn {
