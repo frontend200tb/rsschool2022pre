@@ -26,11 +26,10 @@ let isPlay = false;
 
 const play = () => audio.play();
 const pause = () => audio.pause();
+const changePlayBtn = (e) => playBtn.classList.toggle('pause');
 
-const changePlayBtn = (e) => {
-  playBtn.classList.toggle('pause');
-}
 
+// Клик на кнопке play
 const clickPlay = (e) => {
   if (isPlay === false) {
     isPlay = true;
@@ -43,31 +42,34 @@ const clickPlay = (e) => {
   changePlayBtn();
 }
 
-//функция для настройки громкости
+// Изменение регулятора громкости
 const changeVolume = () => { 
   audio.volume = volumeRange.value/100;
   volumeNum.innerHTML = volumeRange.value;
-  if(volumeRange.value === 0) { 
+  if(volumeRange.value == 0) { 
      speakerBtn.src="assets/svg/mute.svg"
   }
 };
 
-//функция для вкл/выкл громкости
-speakerBtn.onclick = function () {
+// Клик на кнопке вкл/выкл громкости
+const clickVolume = () => {
 
-  if(volumeRange.value === 0) {
+  if (volumeRange.value == 0) {
     volumeRange.value = 50; audio.volume = 1;
-    speakerBtn.src="assets/svg/speaker.svg"
-    valumeNum.innerHTML = volumeRange.value;
+    speakerBtn.src = "assets/svg/speaker.svg";
+    volumeNum.innerHTML = volumeRange.value;
   }
   else {
-    volumeRange.value=0; audio.volume=0;
-    speakerBtn.src="assets/svg/mute.svg"
+    volumeRange.value = 0; audio.volume = 0;
+    speakerBtn.src = "assets/svg/mute.svg";
     volumeNum.innerHTML = volumeRange.value;
   }
 }
+
 
 // Клик на кнопке play
 playBtn.addEventListener('click', clickPlay);
 // Изменение регулятора громкости
 volumeRange.addEventListener('change', changeVolume);
+// Клик на кнопке вкл/выкл громкости
+speakerBtn.addEventListener('click', clickVolume);
