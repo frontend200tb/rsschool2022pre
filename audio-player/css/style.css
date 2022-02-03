@@ -65,7 +65,13 @@ CARD PLAYER
 
 .play-btn {
   width: 40px;
+  height: 40px;
+  background-image: url(../assets/svg/play.svg);
   cursor: pointer;
+}
+
+.play-btn.pause {
+  background-image: url(../assets/svg/pause.svg);
 }
 
 .play-time {

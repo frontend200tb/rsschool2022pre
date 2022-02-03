@@ -22,8 +22,25 @@ console.log ('leftBtn', leftBtn);
 console.log ('title', title);
 console.log ('rightBtn', rightBtn);
 
-const play = (e) => {
-  audio.play();
+let isPlay = false;
+
+const play = () => audio.play();
+const pause = () => audio.pause();
+
+const changePlayBtn = (e) => {
+  playBtn.classList.toggle('pause');
 }
 
-playBtn.addEventListener('click', play);
+const clickPlay = (e) => {
+  if (isPlay === false) {
+    isPlay = true;
+    play();
+  } else {
+    isPlay = false;
+    pause();
+  };
+  
+  changePlayBtn();
+}
+
+playBtn.addEventListener('click', clickPlay);
