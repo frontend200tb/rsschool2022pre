@@ -27,7 +27,7 @@ CARD
   display: flex;
   flex-direction: column;
   width: 334px;
-  height: 500px;
+  height: 550px;
   border-radius: 10px;
   background-color: #555;
   position: relative;
@@ -52,14 +52,14 @@ CARD PLAYER
   flex-direction: column;
   justify-content: start;
   gap: 20px;
+  padding: 20px;
 }
 
 /*player-time*/
 .player-time {
-  margin-top: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -80,7 +80,7 @@ CARD PLAYER
 .player-volume {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -101,6 +101,17 @@ CARD PLAYER
 .player-controls {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+}
+
+.left-btn {
+  width: 40px;
+  cursor: pointer;
+  transform: rotate(180deg);
+}
+
+.right-btn {
+  width: 40px;
+  cursor: pointer;
 }
