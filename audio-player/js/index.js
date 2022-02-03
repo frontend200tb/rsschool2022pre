@@ -22,3 +22,8 @@ console.log ('leftBtn', leftBtn);
 console.log ('title', title);
 console.log ('rightBtn', rightBtn);
 
+const play = (e) => {
+  audio.play();
+}
+
+playBtn.addEventListener('click', play);
