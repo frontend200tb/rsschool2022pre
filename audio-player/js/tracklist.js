@@ -1,4 +1,12 @@
 const tracks = [
+
+  {
+    src: './assets/audio/adele_easyonme.mp3',
+    name: `Easy On Me`,
+    artist: 'Adele',
+    img: './assets/img/adele_easyonme.jpg',
+  },
+
   {
     src: './assets/audio/beyonce_donthurtyourself.mp3',
     name: `Don't Hurt Yourself`,
@@ -12,6 +20,7 @@ const tracks = [
     artist: 'Dua Lipa',
     img: './assets/img/dualipa_dontstartnow.png',
   },
+
 ];
 
 export default tracks;

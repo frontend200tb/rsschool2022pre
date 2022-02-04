@@ -11,7 +11,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
-  background-image: url(../assets/img/beyonce_lemonade.png);
+  background-image: url(../assets/img/adele_easyonme.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
@@ -28,6 +28,7 @@ CARD
 .card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 334px;
   height: 550px;
   border-radius: 10px;

@@ -157,12 +157,22 @@ const setTrack = (num) => {
 }
 
 const forward = () => {
-  currentTrack = 1;
+  if (currentTrack === tracks.length - 1) {
+    currentTrack = 0;
+  } else {
+    currentTrack++;
+  }
+
   setTrack(currentTrack);
 }
 
 const backward = () => {
-  currentTrack = 0;
+  if (currentTrack === 0) {
+    currentTrack = tracks.length - 1;
+  } else {
+    currentTrack--;
+  }
+  
   setTrack(currentTrack);
 }
 
