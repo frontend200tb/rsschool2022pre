@@ -1,16 +1,16 @@
 const tracks = [
   {
-    file: './assets/audio/beyonce.mp3',
+    src: './assets/audio/beyonce_donthurtyourself.mp3',
     name: `Don't Hurt Yourself`,
     artist: 'Beyonce',
-    img: './assets/img/lemonade.png',
+    img: './assets/img/beyonce_lemonade.png',
   },
 
   {
-    src: './assets/audio/dontstartnow.mp3',
+    src: './assets/audio/dualipa_dontstartnow.mp3',
     name: `Don't Start Now`,
     artist: 'Dua Lipa',
-    img: './assets/img/dontstartnow.png',
+    img: './assets/img/dualipa_dontstartnow.png',
   },
 ];
 

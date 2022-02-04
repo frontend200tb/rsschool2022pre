@@ -15,17 +15,6 @@ const artist = document.querySelector('.artist');
 const name = document.querySelector('.name');
 const rightBtn = document.querySelector('.right-btn');
 
-// console.log ('audio', audio);
-// console.log ('playBtn', playBtn);
-// console.log ('playTime', playTime);
-// console.log ('currentTime', currentTime);
-// console.log ('speakerBtn', speakerBtn);
-// console.log ('volumeNum', volumeNum);
-// console.log ('volumeRange', volumeRange);
-// console.log ('leftBtn', leftBtn);
-// console.log ('title', title);
-// console.log ('rightBtn', rightBtn);
-
 let isPlay = false;
 let currentVolume = 100;
 
@@ -39,7 +28,7 @@ const changeSpeakerBtn = () => speakerBtn.classList.toggle('mute');
 Кнопка Play и время
 *******************/
 // Клик на кнопке play
-const clickPlay = (e) => {
+const clickPlay = () => {
   if (isPlay === false) {
     isPlay = true;
     play();
@@ -77,10 +66,9 @@ const getTrackTime = () => {
   } 
 
   trackTime.innerHTML = minutes + ':' + Math.floor(seconds);
-  console.log('time', trackTime.innerHTML);
 };
 
-audio.addEventListener('onloadedmetadata', getTrackTime);
+audio.addEventListener('loadeddata', getTrackTime);
 
 //функция вывода текущего времени воспроизведения
 audio.ontimeupdate = function () {
@@ -152,21 +140,30 @@ volumeRange.addEventListener('change', changeVolume);
 Смена песни
 *******************/
 import tracks from './tracklist.js';
+let currentTrack = 0;
+
+const setTrack = (num) => {
+  if (isPlay) {
+    pause();
+    changePlayBtn();
+    isPlay = false;
+  }  
+  page.style.backgroundImage = `url(${tracks[num].img})`;
+  cardPhoto.src = tracks[num].img;
+  audio.src = tracks[num].src;
+  artist.innerHTML = tracks[num].artist;
+  name.innerHTML = tracks[num].name;
+  getTrackTime();
+}
 
 const forward = () => {
-  page.style.backgroundImage = 'url(assets/img/dualipa_dontstartnow.png)';
-  cardPhoto.src = 'assets/img/dualipa_dontstartnow.png';
-  audio.src = 'assets/audio/dualipa_dontstartnow.mp3';
-  artist.innerHTML = tracks[1].artist;
-  name.innerHTML = tracks[1].name;
+  currentTrack = 1;
+  setTrack(currentTrack);
 }
 
 const backward = () => {
-  page.style.backgroundImage = 'url(assets/img/beyonce_lemonade.png)';
-  cardPhoto.src = 'assets/img/beyonce_lemonade.png';
-  audio.src = 'assets/audio/beyonce_donthurtyourself.mp3';
-  artist.innerHTML = tracks[0].artist;
-  name.innerHTML = tracks[0].name;
+  currentTrack = 0;
+  setTrack(currentTrack);
 }
 
 rightBtn.addEventListener('click', forward);
