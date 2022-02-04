@@ -41,6 +41,7 @@ const clickPlay = () => {
   changePlayBtn();
 }
 
+
 // Клик на кнопке play
 playBtn.addEventListener('click', clickPlay);
 
@@ -70,6 +71,7 @@ const getTrackTime = () => {
 
 audio.addEventListener('loadeddata', getTrackTime);
 
+
 //функция вывода текущего времени воспроизведения
 audio.ontimeupdate = function () {
 
@@ -88,6 +90,7 @@ audio.ontimeupdate = function () {
     if (seconds < 10) { seconds = "0"+seconds; } playTime.innerHTML = minutes+':'+seconds; 
     if(audio.classList.contains("isPlay")) currentTime.value = audio.currentTime; 
 };
+
 
 //функция для установки начала воспроизведения
 currentTime.onchange=function() { 
@@ -116,6 +119,7 @@ const clickVolume = () => {
 
   changeSpeakerBtn();
 }
+
 
 // Изменение регулятора громкости
 const changeVolume = () => { 
@@ -154,6 +158,7 @@ const setTrack = (num) => {
   artist.innerHTML = tracks[num].artist;
   name.innerHTML = tracks[num].name;
   getTrackTime();
+  clickPlay();
 }
 
 const forward = () => {
@@ -178,3 +183,7 @@ const backward = () => {
 
 rightBtn.addEventListener('click', forward);
 leftBtn.addEventListener('click', backward);
+
+
+// По окончанию песни перейти на следующую
+audio.addEventListener('ended', forward);
