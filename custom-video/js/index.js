@@ -11,7 +11,7 @@ const speakerBtn = document.querySelector('.speaker-btn');
 const volumeNum = document.querySelector('.volume-num');
 const volumeRange = document.querySelector('.volume-range');
 const speedNum = document.querySelector('.speed-num');
-const speedRange = document.querySelectorAll('.speed-range');
+const speedRange = document.querySelector('.speed-range');
 const skipBtns = document.querySelectorAll('.skip-btn');
 
 
@@ -24,13 +24,13 @@ const pause = () => video.pause();
 // Изменение кнопки play
 const changePlayBtn = () => {
   video.paused ? playBtn.classList.remove('pause') : playBtn.classList.add('pause');
-}
+};
 
 // Клик на кнопке play
 const clickPlay = () => {
   const method = video.paused ? 'play' : 'pause';
   video[method]();
-}
+};
 
 // Клик на кнопке play
 playBtn.addEventListener('click', clickPlay);
@@ -130,7 +130,7 @@ const clickVolume = () => {
   }
 
   changeSpeakerBtn();
-}
+};
 
 // Клик на кнопке вкл/выкл громкости
 speakerBtn.addEventListener('click', clickVolume);
@@ -181,34 +181,21 @@ video.addEventListener('timeupdate', changeProgress);
 /*******************
 Изменение скорости
 *******************/
-// const changeSpeed = () => { 
-//   video.volume = volumeRange.value / 100;
-//   volumeNum.innerHTML = volumeRange.value;
-//   if(volumeRange.value == 0 && !speakerBtn.classList.contains('mute')) { 
-//     speakerBtn.classList.add('mute');
-//   }
-//   if(volumeRange.value != 0 && speakerBtn.classList.contains('mute')) { 
-//     speakerBtn.classList.remove('mute');
-//   }
-// };
+const changeSpeed = () => { 
+  video.playbackRate = speedRange.value;
+  speedNum.textContent = speedRange.value;
+};
 
-// Изменение регулятора громкости
-// volumeRange.addEventListener('change', changeVolume);
-
-
-// speedRange.forEach(range => range.addEventListener('change', changeRange));
-// speedRange.forEach(range => range.addEventListener('mousemove', changeRange));
+//Изменение регулятора громкости
+speedRange.addEventListener('click', changeSpeed);
+speedRange.addEventListener('mousemove', changeSpeed);
 
 
 /*******************
 Кнопки 25с вперед, 10с назад
 *******************/
-function skip() {
+function skip () {
   video.currentTime += parseFloat(this.dataset.skip);
-}
-
-function changeRange() {
-  video[this.name] = this.value;
-}
+};
 
 skipBtns.forEach(button => button.addEventListener('click', skip));
