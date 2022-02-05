@@ -7,24 +7,24 @@ const currentTime = document.querySelector('.current-time');
 const playBtn = document.querySelector('.play-btn');
 const playTime = document.querySelector('.play-time');
 const trackTime = document.querySelector('.track-time');
-const ranges = document.querySelectorAll('.player__range');
-const skipBtns = document.querySelectorAll('[data-skip]');
-const log = document.querySelector('.log');
+const speakerBtn = document.querySelector('.speaker-btn');
+const volumeNum = document.querySelector('.volume-num');
+const volumeRange = document.querySelector('.volume-range');
+const speedNum = document.querySelector('.speed-num');
+const speedRange = document.querySelectorAll('.speed-range');
+const skipBtns = document.querySelectorAll('.skip-btn');
 
 
 /*******************
-Кнопка Play и время
+Кнопка Play
 *******************/
-let isPlay = false;
-let currentVolume = 100;
-
-// Play / Pause
 const play = () => video.play();
 const pause = () => video.pause();
 
 // Изменение кнопки play
-const changePlayBtn = () => playBtn.classList.toggle('pause');
-const changeSpeakerBtn = () => speakerBtn.classList.toggle('mute');
+const changePlayBtn = () => {
+  video.paused ? playBtn.classList.remove('pause') : playBtn.classList.add('pause');
+}
 
 // Клик на кнопке play
 const clickPlay = () => {
@@ -42,7 +42,9 @@ video.addEventListener('play', changePlayBtn);
 video.addEventListener('pause', changePlayBtn);
 
 
-//Время равно времени трека
+/*******************
+Время трека
+*******************/
 const getTrackTime = () => {
   currentTime.max = video.duration;
   let sec_num = video.duration;
@@ -68,8 +70,10 @@ const getTrackTime = () => {
 video.addEventListener('loadeddata', getTrackTime);
 
 
-//функция вывода текущего времени воспроизведения
-video.ontimeupdate = function () {
+/*******************
+Текущее время
+*******************/
+const changeTime = () => {
 
   var sec_num = video.currentTime;
   var hours   = Math.floor(sec_num / 3600);
@@ -84,15 +88,70 @@ video.ontimeupdate = function () {
     minutes = "0"+minutes;
   }
   if (seconds < 10) { seconds = "0"+seconds; } playTime.innerHTML = minutes+':'+seconds; 
-  if(video.classList.contains("isPlay")) currentTime.value = video.currentTime; 
+  currentTime.value = video.currentTime; 
 };
 
+video.addEventListener('timeupdate', changeTime);
 
-//функция для установки начала воспроизведения
-currentTime.onchange=function() { 
 
-video.pause(); video.currentTime = currentTime.value; video.play(); 
+/*******************
+Изменение ползунка текущего времени
+*******************/
+const changeCurrentTime = () => {
+  pause(); 
+  video.currentTime = currentTime.value; 
+  play(); 
 };
+
+currentTime.addEventListener('change', changeCurrentTime);
+
+
+/*******************
+Кнопка вкл/выкл громкости
+*******************/
+let currentVolume = 100;
+
+// Изменение кнопки вкл/выкл громкости
+const changeSpeakerBtn = () => speakerBtn.classList.toggle('mute');
+
+// Клик на кнопке вкл/выкл громкости
+const clickVolume = () => {
+
+  if (volumeRange.value == 0) {
+    volumeRange.value = currentVolume; 
+    video.volume = volumeRange.value / 100;
+    volumeNum.innerHTML = volumeRange.value;
+  }
+  else {
+    currentVolume = volumeRange.value;
+    volumeRange.value = 0; 
+    video.volume = 0;
+    volumeNum.innerHTML = volumeRange.value;
+  }
+
+  changeSpeakerBtn();
+}
+
+// Клик на кнопке вкл/выкл громкости
+speakerBtn.addEventListener('click', clickVolume);
+
+
+/*******************
+Изменение регулятора громкости
+*******************/
+const changeVolume = () => { 
+  video.volume = volumeRange.value / 100;
+  volumeNum.innerHTML = volumeRange.value;
+  if(volumeRange.value == 0 && !speakerBtn.classList.contains('mute')) { 
+    speakerBtn.classList.add('mute');
+  }
+  if(volumeRange.value != 0 && speakerBtn.classList.contains('mute')) { 
+    speakerBtn.classList.remove('mute');
+  }
+};
+
+// Изменение регулятора громкости
+volumeRange.addEventListener('change', changeVolume);
 
 
 /*******************
@@ -100,13 +159,11 @@ Progress Bar время
 *******************/
 function changeProgress() {
   const percent = (video.currentTime / video.duration) * 100;
-  log.textContent += percent;
   currentTime.style.width = `${percent}%`;
 }
 
 function scrub(e) {
   const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
-  log.textContent = e;
   video.currentTime = scrubTime;
 }
 
@@ -121,6 +178,27 @@ progress.addEventListener('mouseup', () => isMousedown = false);
 video.addEventListener('timeupdate', changeProgress);
 
 
+/*******************
+Изменение скорости
+*******************/
+// const changeSpeed = () => { 
+//   video.volume = volumeRange.value / 100;
+//   volumeNum.innerHTML = volumeRange.value;
+//   if(volumeRange.value == 0 && !speakerBtn.classList.contains('mute')) { 
+//     speakerBtn.classList.add('mute');
+//   }
+//   if(volumeRange.value != 0 && speakerBtn.classList.contains('mute')) { 
+//     speakerBtn.classList.remove('mute');
+//   }
+// };
+
+// Изменение регулятора громкости
+// volumeRange.addEventListener('change', changeVolume);
+
+
+// speedRange.forEach(range => range.addEventListener('change', changeRange));
+// speedRange.forEach(range => range.addEventListener('mousemove', changeRange));
+
 
 /*******************
 Кнопки 25с вперед, 10с назад
@@ -134,7 +212,3 @@ function changeRange() {
 }
 
 skipBtns.forEach(button => button.addEventListener('click', skip));
-ranges.forEach(range => range.addEventListener('change', changeRange));
-ranges.forEach(range => range.addEventListener('mousemove', changeRange));
-
-

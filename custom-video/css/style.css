@@ -56,7 +56,6 @@ PROGRESS
 }
 
 .current-time {
-  width: 50%;
   background: #ffd900;
 }
 
@@ -111,8 +110,23 @@ PLAYER CONTROLS
   background-image: url(../assets/svg/mute.svg);
 }
 
-.player__range {
-  width: 200px;
+.volume-range {
+}
+
+.speed-btn {
+  width: 40px;
+  height: 40px;
+  background-image: url(../assets/svg/speed.svg);
+  background-repeat: no-repeat;
+  cursor: pointer;
+transition: transform 0.5s;
+}
+
+.speed-btn:hover {
+  transform: rotate(360deg);
+}
+
+.speed-range {
 }
 
 
