@@ -55,7 +55,7 @@ PROGRESS
   cursor: ew-resize;
 }
 
-.progress__filled {
+.current-time {
   width: 50%;
   background: #ffd900;
 }
@@ -68,6 +68,7 @@ PLAYER CONTROLS
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   padding: 10px;
 }
@@ -87,6 +88,10 @@ PLAYER CONTROLS
 
 .play-btn.pause {
   background-image: url(../assets/svg/pause.svg);
+}
+
+.time {
+  font-size: 16px;
 }
 
 .speaker-btn {
