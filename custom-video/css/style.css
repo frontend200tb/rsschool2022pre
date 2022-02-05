@@ -23,15 +23,63 @@
 
 
 /******************
-PLAYER
+CARD
 ******************/
-.player {
+.card {
   display: flex;
   flex-direction: column;
   justify-content: start;
   margin: 0 auto;
   width: 750px;
   background-color: #999;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  position: relative;
+}
+
+
+/******************
+VIDEO BUTTON
+******************/
+.video-btn {
+  width: 100px;
+  height: 100px;
+  background: none;
+  background-image: url('../assets/svg/play-in.svg');
+  background-repeat:no-repeat;
+  position:absolute;
+  left:0%;
+  right:0%;
+  top:0%;
+  bottom:0%;
+  margin:auto;
+  background-size:contain;
+  background-position: center;
+  transition: filter 0.5s;
+  cursor: pointer;
+}
+
+.video-btn:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+  animation: rotation 2s infinite linear;
+}
+
+.video-btn.pause {
+  display: none;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 
@@ -119,7 +167,7 @@ PLAYER CONTROLS
   background-image: url(../assets/svg/speed.svg);
   background-repeat: no-repeat;
   cursor: pointer;
-transition: transform 0.5s;
+  transition: transform 0.5s;
 }
 
 .speed-btn:hover {
@@ -131,15 +179,30 @@ transition: transform 0.5s;
 
 
 .skip-btn {
-  max-width:50px;
-  padding: 0;
+  width: 40px;
+  height: 40px;
   border:0;
-  line-height:1;
-  color:white;
-  text-align: center;
   outline:0;
   cursor:pointer;
-  background:none;
+  background: none;
+  transition: skale 0.5s;
+}
+
+.skip-left {
+  background-image: url(../assets/svg/skip.svg);
+  transform: rotate(180deg);
+}
+
+.skip-right {
+  background-image: url(../assets/svg/skip.svg);
+}
+
+.skip-left:hover {
+  transform: rotate(180deg) scale(1.2);
+}
+
+.skip-right:hover {
+  transform: rotate(360deg) scale(1.2);
 }
 
 

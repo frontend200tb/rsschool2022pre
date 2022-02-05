@@ -1,7 +1,7 @@
 console.log('start');
 
-const player = document.querySelector('.player');
 const video = document.querySelector('video');
+const videoBtn = document.querySelector('.video-btn');
 const progress = document.querySelector('.progress');
 const currentTime = document.querySelector('.current-time');
 const playBtn = document.querySelector('.play-btn');
@@ -23,7 +23,13 @@ const pause = () => video.pause();
 
 // Изменение кнопки play
 const changePlayBtn = () => {
-  video.paused ? playBtn.classList.remove('pause') : playBtn.classList.add('pause');
+  if (video.paused) {
+    playBtn.classList.remove('pause');
+    videoBtn.classList.remove('pause');
+   } else {
+     playBtn.classList.add('pause');
+     videoBtn.classList.add('pause');
+   }   
 };
 
 // Клик на кнопке play
@@ -37,6 +43,7 @@ playBtn.addEventListener('click', clickPlay);
 
 // Клик по видео
 video.addEventListener('click', clickPlay);
+videoBtn.addEventListener('click', clickPlay);
 
 video.addEventListener('play', changePlayBtn);
 video.addEventListener('pause', changePlayBtn);
