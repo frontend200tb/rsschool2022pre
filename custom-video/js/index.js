@@ -1,27 +1,29 @@
-/***************
-Get elements
-***************/
+console.log('start');
+
 const player = document.querySelector('.player');
-const video = document.querySelector('.viewer');
+const video = document.querySelector('video');
 const progress = document.querySelector('.progress');
 const progressBar = document.querySelector('.progress__filled');
-const toggle = document.querySelector('.toggle');
-const ranges = document.querySelectorAll('.player__slider');
+const playBtn = document.querySelector('.play-btn');
+const ranges = document.querySelectorAll('.player__range');
 const skipBtns = document.querySelectorAll('[data-skip]');
 const log = document.querySelector('.log');
+
+let isPlay = false;
+let currentVolume = 100;
+
+const play = () => video.play();
+const pause = () => video.pause();
+const changePlayBtn = () => playBtn.classList.toggle('pause');
+const changeSpeakerBtn = () => speakerBtn.classList.toggle('mute');
 
 
 /***************
 Build out functions
 ***************/
-function togglePlay() {
+function clickPlay() {
   const method = video.paused ? 'play' : 'pause';
   video[method]();
-}
-
-function changePlayBtn() {
-  const method = video.paused ? 'play' : 'pause';
-  toggle.textContent = method;
 }
 
 function skip() {
@@ -37,7 +39,8 @@ function changeRange() {
 
 function changeProgress() {
   const percent = (video.currentTime / video.duration) * 100;
-  progressBar.getElementsByClassName.flexBasis = `${percent}%`;
+  log.textContent += percent;
+  progressBar.style.width = `${percent}%`;
 }
 
 function scrub(e) {
@@ -50,19 +53,19 @@ function scrub(e) {
 /***************
 Hook up the event listeners
 ***************/
-video.addEventListener('click', togglePlay);
+video.addEventListener('click', clickPlay);
 video.addEventListener('play', changePlayBtn);
 video.addEventListener('pause', changePlayBtn);
 video.addEventListener('timeupdate', changeProgress);
 
-toggle.addEventListener('click', togglePlay);
+playBtn.addEventListener('click', clickPlay);
 
 skipBtns.forEach(button => button.addEventListener('click', skip));
 ranges.forEach(range => range.addEventListener('change', changeRange));
 ranges.forEach(range => range.addEventListener('mousemove', changeRange));
 
 let isMousedown = false
-progressBar.addEventListener('click', scrub);
-progressBar.addEventListener('mousemove', (e) => isMousedown && scrub(e));
-progressBar.addEventListener('mousedown', () => isMousedown = true);
-progressBar.addEventListener('mouseup', () => isMousedown = false);
+progress.addEventListener('click', scrub);
+progress.addEventListener('mousemove', (e) => isMousedown && scrub(e));
+progress.addEventListener('mousedown', () => isMousedown = true);
+progress.addEventListener('mouseup', () => isMousedown = false);
