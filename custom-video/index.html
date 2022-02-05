@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend200tb video-player</title>
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/favicon.png">
+</head>
+<body>
+  <div class="page">
+    <main class="main">
+
+      <div class="player">
+
+        <video class="player__video viewer" src="assets/video/Fluentes - Putnici.mp4"></video>
+
+        <div class="player__controls">
+          <div class="progress">
+            <div class="progress__filled"></div>
+          </div>
+
+          <button class="player__button toggle" title="Toggle Play">►</button>
+
+          <input class="player__slider" type="range" name="volume" min=0 max="1" step="0.05" value="1">
+
+          <input class="player__slider" type="range" name="playbackRate" min="0.5" max="2" step="0.1" value="1">
+
+          <button class="player__button" data-skip="-10">« 10s</button>
+
+          <button class="player__button" data-skip="25">25s »</button>
+        </div>
+        
+      </div>
+
+      <div class="log"></div>
+      
+    </main>
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-data">
+            <span class="footer-copyright">©</span>
+            <span class="footer-year">2022</span>
+            <a class="footer-github" href="https://github.com/frontend200tb">github</a>
+            <span class="log"></span>
+          </div>
+
+          <a class="footer-logo" href="https://rs.school/js-stage0/"></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/index.js"></script>
+
+</body>
+</html>
