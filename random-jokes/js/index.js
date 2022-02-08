@@ -73,6 +73,65 @@ const quotes = [
     "author" : "Spongebob"
    }
 ]
+
+const spongebobImgs = [
+  { 
+   "image" : "assets/img/1.png"
+  },
+  { 
+   "image" : "assets/img/2.png"
+  },
+  { 
+   "image" : "assets/img/3.png"
+  },
+  { 
+   "image" : "assets/img/4.png"
+  },
+  { 
+   "image" : "assets/img/5.png"
+  },
+  { 
+   "image" : "assets/img/6.png"
+  },
+  { 
+   "image" : "assets/img/7.png"
+  },
+  { 
+   "image" : "assets/img/8.png"
+  },
+  { 
+   "image" : "assets/img/9.png"
+  },
+  { 
+   "image" : "assets/img/10.png"
+  },
+  { 
+   "image" : "assets/img/11.png"
+  },
+  { 
+   "image" : "assets/img/12.png"
+  },
+  { 
+   "image" : "assets/img/13.png"
+  },
+  { 
+   "image" : "assets/img/14.png"
+  },
+  { 
+   "image" : "assets/img/15.png"
+  },
+  { 
+   "image" : "assets/img/16.png"
+  },
+  { 
+   "image" : "assets/img/17.png"
+  },
+  { 
+   "image" : "assets/img/18.png"
+  }
+]
+
+const img = document.querySelector(".img");
 const btn = document.querySelector(".btn");
 const content = document.querySelector(".content");
 const quote = document.querySelector(".quote");
@@ -84,8 +143,15 @@ function randomQuote() {
   author.innerText = random.author;
 }
 
+function randomImg() {
+  let random = spongebobImgs[Math.floor(Math.random() * spongebobImgs.length)];
+  img.src = random.image;
+}
+
 document.addEventListener("DOMContentLoaded", randomQuote);
+document.addEventListener("DOMContentLoaded", randomImg);
 
 btn.addEventListener("click", randomQuote);
+btn.addEventListener("click", randomImg);
 
 console.log('js code complete frontend200tb random-jokes');
