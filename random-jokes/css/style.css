@@ -85,6 +85,11 @@ FOOTER
   background-color: #000;
 }
 
+.container {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
 .footer-content {
   display: flex;
   flex-direction: row;
