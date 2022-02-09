@@ -5,27 +5,80 @@
 }
 
 .page {
-  --gold: #bdae82;
+  --light: #e0eba1;
+  --middle: #979c47;
+  --dark: #383705;
+  min-width: 800px;
+  height: 100vh;
   font-family: 'Rubik', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--dark);
 }
 
 
+/***********************
+HEADER
+***********************/
+.header {
+  height: 60px;
+  background-color: var(--light);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 10px;
+  align-items: center;
+}
+
+.title {
+  margin-left: auto;
+  color: #383705;
+}
+
+.header__lang {
+  margin: 0 0 0 auto;
+  padding: 0 20px;
+  width: 130px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #383705;
+}
+
+.lang {
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+.lang:hover,
+.lang-active {
+  color: var(--light);
+}
+
+
+/***********************
+MAIN
+***********************/
 .main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
   align-items: center;
-  min-height: calc(100vh - 60px);
-  background-color: #e0eba1;
-}
-
-.title {
-  text-align: center;
-  color: #383705;
+  height: 100%;
+  background-color: var(--light);
 }
 
 .container {
@@ -51,7 +104,7 @@
   border: 2px solid #383705;
   border-radius: 20px;
   outline: none;
-  background-color: #979c47;
+  background-color: var(--middle);
   transition: all 0.5s linear;
   cursor: pointer;
 }
@@ -77,25 +130,21 @@
   color: #383705;
 }
 
+
 /***********************
 FOOTER
 ***********************/
 .footer {
   height: 60px;
-  background-color: #000;
-}
-
-.container {
-  margin: 0 auto;
-  max-width: 1440px;
+  background-color: var(--dark);
 }
 
 .footer-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0 10px;
   align-items: center;
-  padding: 0 30px;
 }
 
 .footer-data {
@@ -113,7 +162,7 @@ FOOTER
 }
 
 .footer-github:hover {
-  color: var(--gold);
+  color: var(--light);
 }
 
 .footer-logo {
@@ -128,5 +177,5 @@ FOOTER
 }
 
 .footer-logo:hover {
-  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  filter: invert(2%) sepia(3%) saturate(6148%) hue-rotate(332deg) brightness(110%) contrast(82%);
 }
