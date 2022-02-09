@@ -4,7 +4,7 @@ console.log('start frontend200tb random-jokes');
 /*******************
 Константы
 *******************/
-let urlQuote = "./js/quotes18.json";
+let url = "https://api.unsplash.com/photos/?client_id=hwxC3T49Lg8eHq6EssaHcwBzIC6zRmvgJHB6ofcJeEA";
 const urlImage = "./js/images18.json";
 
 const img = document.querySelector(".img");
@@ -17,14 +17,15 @@ let currentLang = 'en';
 /*******************
 Получение json
 *******************/
-async function getPhrase() {
-  const phraseData = await fetch(urlQuote);
-  const obj = await phraseData.json();
-  randomQuote(obj);
-}
+// async function getPhrase() {
+//   const phraseData = await fetch(url);
+//   const obj = await phraseData.json();
+//   quote.innerText = obj[0].urls.small;
+//   console.log(obj);
+// }
 
 async function getImage() {
-  const imageData = await fetch(urlImage);
+  const imageData = await fetch(url);
   const obj = await imageData.json();
   randomImg(obj);
 }
@@ -40,18 +41,18 @@ function randomQuote(obj) {
 }
 
 function randomImg(obj) {
-  let random = obj.images[Math.floor(Math.random() * obj.images.length)];
-  img.src = random.image;
+  let random = obj[Math.floor(Math.random() * obj.length)];
+  img.src = random.urls.small;
 }
 
 
 /*******************
 События
 *******************/
-document.addEventListener("DOMContentLoaded", getPhrase);
+//document.addEventListener("DOMContentLoaded", getPhrase);
 document.addEventListener("DOMContentLoaded", getImage);
 
-btn.addEventListener("click", getPhrase);
+//btn.addEventListener("click", getPhrase);
 btn.addEventListener("click", getImage);
 
 
