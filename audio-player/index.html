@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Иван Каширин">
+  <meta name="copyright" content="200TB Web Studio">
+  <meta name="description" content="RS School task js30 audio player">
+  <meta name="keywords" content="rolling scopes, rs school, task, js30, javascrit, frontend, audio player">
+  <title>Frontend200tb audio player</title>
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/favicon.png">
+</head>
+
+<body>
+  <div class="page">
+    <main class="blur">
+
+      <div class="card">
+
+        <img class="card-photo" src="assets/img/adele_easyonme.jpg" alt="dontstartnow">
+
+        <div class="card-player">
+
+          <audio class="audio" src="assets/audio/adele_easyonme.mp3"></audio>
+
+
+          <div class="player-time">
+            <div class="play-btn"></div>
+
+            <div class="time">
+              <span class="play-time">0:00</span> / <span class="track-time">0:00</span>
+            </div>
+
+            <input class="current-time" type="range" min="0" max="10" step="0">
+
+          </div>
+
+
+          <div class="player-volume">
+            <div class="speaker-btn"></div>
+
+            <div class="volume-num">100</div>
+
+            <input class="volume-range" type="range" min="0" max="100" value="100">
+          </div>
+
+
+          <div class="player-controls">
+            <img class="left-btn" src="assets/svg/forward.svg" alt="left button">
+
+            <div class="title">
+              <div class="artist">Beyonce</div>
+              <div class="name">Don't Hurt Yourself</div>
+            </div>
+
+            <img class="right-btn" src="assets/svg/forward.svg" alt="right button">
+          </div>
+
+
+        </div>
+
+      </div>
+    </main>
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-data">
+            <span class="footer-copyright">©</span>
+            <span class="footer-year">2022</span>
+            <a class="footer-github" href="https://github.com/frontend200tb">github</a>
+            <span class="log"></span>
+          </div>
+
+          <a class="footer-logo" href="https://rs.school/js-stage0/"></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="js/index.js"></script>
+
+</body>
+
+</html>

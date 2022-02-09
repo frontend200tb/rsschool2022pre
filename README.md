@@ -15,5 +15,3 @@ https://rolling-scopes-school.github.io/frontend200tb-JSFEPRESCHOOL/custom-video
 https://rolling-scopes-school.github.io/frontend200tb-JSFEPRESCHOOL/random-jokes
 
 https://rolling-scopes-school.github.io/frontend200tb-JSFEPRESCHOOL/image-galery
-
-https://rolling-scopes-school.github.io/frontend200tb-JSFEPRE

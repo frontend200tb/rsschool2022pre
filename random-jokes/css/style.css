@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  --light: #e0eba1;
+  --middle: #979c47;
+  --dark: #383705;
+  min-width: 860px;
+  height: 100vh;
+  font-family: 'Rubik', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--dark);
+}
+
+
+/***********************
+HEADER
+***********************/
+.header {
+  height: 60px;
+  background-color: var(--light);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 10px;
+  align-items: center;
+}
+
+.title {
+  margin-left: auto;
+  color: #383705;
+}
+
+.header__lang {
+  margin: 0 0 0 auto;
+  padding: 0 20px;
+  width: 130px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #383705;
+}
+
+.lang {
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+.lang:hover,
+.lang-active {
+  color: var(--light);
+}
+
+
+/***********************
+MAIN
+***********************/
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  height: 100%;
+  background-color: var(--light);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.imgDiv {
+  width: 500px;
+  height: 300px;
+  text-align: center;
+}
+
+.img {
+  max-width: 450px;
+  height: 300px;
+}
+
+.btn {
+  padding: 20px;
+  font-size: 24px;
+  color: #fff;
+  border: 2px solid #383705;
+  border-radius: 20px;
+  outline: none;
+  background-color: var(--middle);
+  transition: all 0.5s linear;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #979c47;
+  background: #383705;
+}
+
+.content {
+  max-width: 900px;
+  height: 150px;
+}
+
+.quote {
+  text-align: center;
+  color: #383705;
+}
+
+.author {
+  margin: 30px;
+  text-align: right;
+  color: #383705;
+}
+
+
+/***********************
+FOOTER
+***********************/
+.footer {
+  height: 60px;
+  background-color: var(--dark);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 10px;
+  align-items: center;
+}
+
+.footer-data {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 20px;
+  color: #fff
+}
+
+.footer-github {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.5s;
+}
+
+.footer-github:hover {
+  color: var(--light);
+}
+
+.footer-logo {
+  display: block;
+  margin: 5px 0;
+  width: 135px;
+  height: 50px;
+  background-image: url(../assets/svg/rss.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: filter 0.5s;
+}
+
+.footer-logo:hover {
+  filter: invert(2%) sepia(3%) saturate(6148%) hue-rotate(332deg) brightness(110%) contrast(82%);
+}
