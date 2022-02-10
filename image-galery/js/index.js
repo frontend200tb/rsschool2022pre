@@ -4,7 +4,8 @@ console.log('start frontend200tb image-galery');
 /*******************
 Константы
 *******************/
-let url = "https://api.unsplash.com/photos/?client_id=hwxC3T49Lg8eHq6EssaHcwBzIC6zRmvgJHB6ofcJeEA";
+//let url = "https://api.unsplash.com/photos/?client_id=hwxC3T49Lg8eHq6EssaHcwBzIC6zRmvgJHB6ofcJeEA";
+let url = "js/obj.json";
 
 const input = document.querySelector('.input');
 const btn = document.querySelector('.btn');
@@ -12,34 +13,30 @@ const galery = document.querySelector('.galery');
 const img = document.querySelectorAll('.img');
 
 async function getImage() {
-  const imageData = await fetch(url);
-  const obj = await imageData.json();
-  randomImg(obj);
+  const res = await fetch(url);
+  const data = await res.json();
+  console.log('data', data);
+  randomImg(data);
 }
 
-
+let objElem;
 /*******************
 Получение случайного изображения
 *******************/
-function randomQuote(obj) {
-  let random = obj.quotes[Math.floor(Math.random() * obj.quotes.length)];
-  quote.innerText = `“${random.quote}.”`;
-  author.innerText = random.author;
-}
-
 function randomImg(obj) {
   let random = obj[Math.floor(Math.random() * obj.length)];
-  img.src = random.urls.small;
+  objElem = random;
+  console.log('objElem', objElem);
+  console.log('objElemUrl', objElem.urls);
+  console.log('objElemUrlSmall', objElem.urls.small);
 }
 
 
 /*******************
 События
 *******************/
-//document.addEventListener("DOMContentLoaded", getPhrase);
-//document.addEventListener("DOMContentLoaded", getImage);
+document.addEventListener("DOMContentLoaded", getImage);
 
-//btn.addEventListener("click", getPhrase);
 //btn.addEventListener("click", getImage);
 
 
