@@ -4,40 +4,56 @@ console.log('start frontend200tb image-galery');
 /*******************
 Константы
 *******************/
-//let url = "https://api.unsplash.com/photos/?client_id=hwxC3T49Lg8eHq6EssaHcwBzIC6zRmvgJHB6ofcJeEA";
-let url = "js/obj.json";
-
+const form = document.querySelector('.form');
 const input = document.querySelector('.input');
 const btn = document.querySelector('.btn');
-const galery = document.querySelector('.galery');
-const img = document.querySelectorAll('.img');
+const gallery = document.querySelector('.gallery');
 
+//const apiId = 'hwxC3T49Lg8eHq6EssaHcwBzIC6zRmvgJHB6ofcJeEA';
+const apiId = 'euralEva9ogeSkcZJTx5DlEEn9zx_-BeiwZg_mUXVqY';
+let searchQuery;
+let urlApi = './js/obj.json';
+
+
+/*******************
+Получение данных от API при загрузке страницы
+*******************/
 async function getImage() {
-  const res = await fetch(url);
-  const data = await res.json();
+  event.preventDefault();
+  console.log('вошли в функцию');
+  searchQuery = input.value;
+  const urlImg = `https://api.unsplash.com/search/photos?query=${searchQuery}&per_page=12&&client_id=${apiId}`;
+  const response = await fetch(urlImg);
+  // if (!response.ok) {
+  //   throw Error(response.statusText);
+  // }
+  const data = await response.json();
   console.log('data', data);
-  randomImg(data);
+  displayImg(data);
 }
 
-let objElem;
-/*******************
-Получение случайного изображения
-*******************/
-function randomImg(obj) {
-  let random = obj[Math.floor(Math.random() * obj.length)];
-  objElem = random;
-  console.log('objElem', objElem);
-  console.log('objElemUrl', objElem.urls);
-  console.log('objElemUrlSmall', objElem.urls.small);
+function displayImg(json) {
+	json.results.forEach((result) => {
+		const url = result.urls.small;
+    console.log('url', url);
+		const unsplashLink = result.links.html;
+		gallery.insertAdjacentHTML(
+			"beforeend",
+			`<div>
+				<a href="${unsplashLink}" target="_blank">
+					<div class="img" style="background-image: url(${url});"></div>
+				</a>
+			</div>`
+		);
+	});
 }
 
 
 /*******************
 События
 *******************/
-document.addEventListener("DOMContentLoaded", getImage);
-
-//btn.addEventListener("click", getImage);
+//document.addEventListener("DOMContentLoaded", () => getImage(urlApi));
+form.addEventListener('submit', getImage);
 
 
 
