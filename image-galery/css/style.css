@@ -107,6 +107,10 @@ SEARCH FORM
   width: 350px;
 }
 
+.input::-webkit-search-cancel-button {
+padding-right: 30px;
+}
+
 .btn {
   width: 20px;
   height: 20px;
