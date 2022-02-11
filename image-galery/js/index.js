@@ -21,22 +21,24 @@ let urlApi = './js/obj.json';
 async function getImage() {
   event.preventDefault();
   console.log('вошли в функцию');
-  searchQuery = input.value;
+  while (gallery.firstChild) {
+    gallery.removeChild(gallery.firstChild);
+  }   
+  searchQuery = (input.value || 'random');
   const urlImg = `https://api.unsplash.com/search/photos?query=${searchQuery}&per_page=12&&client_id=${apiId}`;
   const response = await fetch(urlImg);
-  // if (!response.ok) {
-  //   throw Error(response.statusText);
-  // }
   const data = await response.json();
   console.log('data', data);
   displayImg(data);
 }
 
 function displayImg(json) {
+ 
 	json.results.forEach((result) => {
 		const url = result.urls.small;
     console.log('url', url);
 		const unsplashLink = result.links.html;
+
 		gallery.insertAdjacentHTML(
 			"beforeend",
 			`<div>
@@ -52,7 +54,7 @@ function displayImg(json) {
 /*******************
 События
 *******************/
-//document.addEventListener("DOMContentLoaded", () => getImage(urlApi));
+document.addEventListener("DOMContentLoaded", getImage);
 form.addEventListener('submit', getImage);
 
 
