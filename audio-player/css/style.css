@@ -5,8 +5,10 @@
 }
 
 .page {
-  --gold: #bdae82;
-  font-family: 'Rubik';
+  --light: #e0eba1;
+  --middle: #ffa500;
+  --dark: #383705;
+  font-family: "Rubik";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -22,7 +24,6 @@
   backdrop-filter: blur(5px);
 }
 
-
 /******************
 CARD
 ******************/
@@ -37,14 +38,15 @@ CARD
   background-color: #555;
 }
 
-
 /******************
 CARD PHOTO
 ******************/
 .card-photo {
+  width: 350px;
+  height: 350px;
+  background-size: cover;
   border-radius: 10px 10px 0 0;
 }
-
 
 /******************
 CARD PLAYER
@@ -157,13 +159,12 @@ CARD PLAYER
   transform: rotate(360deg) scale(1.3);
 }
 
-
 /***********************
 FOOTER
 ***********************/
 .footer {
   height: 60px;
-  background-color: #000;
+  background-color: var(--dark);
 }
 
 .footer-content {
@@ -179,7 +180,7 @@ FOOTER
   justify-content: space-between;
   flex-direction: row;
   gap: 20px;
-  color: #fff
+  color: #fff;
 }
 
 .footer-github {
@@ -189,7 +190,7 @@ FOOTER
 }
 
 .footer-github:hover {
-  color: var(--gold);
+  color: var(--middle);
 }
 
 .footer-logo {
@@ -204,5 +205,6 @@ FOOTER
 }
 
 .footer-logo:hover {
-  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  filter: invert(57%) sepia(67%) saturate(1222%) hue-rotate(2deg)
+    brightness(105%) contrast(107%);
 }
