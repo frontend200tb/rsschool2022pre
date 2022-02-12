@@ -6,16 +6,15 @@
 
 .page {
   --light: #e0eba1;
-  --middle: #FFA500;
+  --middle: #ffa500;
   --dark: #383705;
   min-width: 320px;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   background-color: var(--dark);
 }
-
 
 /***********************
 CONTAINER
@@ -30,7 +29,6 @@ CONTAINER
     width: 100%;
   }
 }
-
 
 /***********************
 HEADER
@@ -66,8 +64,6 @@ HEADER
   gap: 10px;
 }
 
-
-
 .header-logo {
   width: 40px;
   height: 40px;
@@ -75,14 +71,14 @@ HEADER
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  filter: invert(57%) sepia(67%) saturate(1222%) hue-rotate(2deg) brightness(105%) contrast(107%);
+  filter: invert(57%) sepia(67%) saturate(1222%) hue-rotate(2deg)
+    brightness(105%) contrast(107%);
 }
 
 .header-h1 {
   font-size: 2rem;
   color: #fff;
 }
-
 
 /***********************
 SEARCH FORM
@@ -100,7 +96,7 @@ SEARCH FORM
   border: 1px solid var(--dark);
   outline: none;
   position: relative;
-  transition: .5s linear;
+  transition: 0.5s linear;
 }
 
 .input:focus {
@@ -108,7 +104,7 @@ SEARCH FORM
 }
 
 .input::-webkit-search-cancel-button {
-padding-right: 30px;
+  padding-right: 30px;
 }
 
 .btn {
@@ -124,16 +120,17 @@ padding-right: 30px;
 }
 
 .btn:hover {
-  filter: invert(57%) sepia(67%) saturate(1222%) hue-rotate(2deg) brightness(105%) contrast(107%);
+  filter: invert(57%) sepia(67%) saturate(1222%) hue-rotate(2deg)
+    brightness(105%) contrast(107%);
 }
-
 
 /***********************
 MAIN
 ***********************/
 .main {
+  margin-bottom: 60px;
   padding: 20px 0;
-  min-height: calc(100vh - 140px);
+  min-height: calc(100vh - 60px);
 }
 
 .gallery {
@@ -148,13 +145,12 @@ MAIN
 .img {
   width: 350px;
   height: 250px;
-  transition: .5s linear;
+  transition: 0.5s linear;
 }
 
 .img:hover {
   transform: scale(1.02);
 }
-
 
 /***********************
 FOOTER
@@ -180,7 +176,7 @@ FOOTER
   justify-content: space-between;
   flex-direction: row;
   gap: 20px;
-  color: #fff
+  color: #fff;
 }
 
 .footer-github {
@@ -205,5 +201,6 @@ FOOTER
 }
 
 .footer-logo:hover {
-  filter: invert(57%) sepia(67%) saturate(1222%) hue-rotate(2deg) brightness(105%) contrast(107%);
+  filter: invert(57%) sepia(67%) saturate(1222%) hue-rotate(2deg)
+    brightness(105%) contrast(107%);
 }
