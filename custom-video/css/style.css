@@ -5,22 +5,39 @@
 }
 
 .page {
-  --gold: #bdae82;
-  font-family: 'Rubik';
+  --light: #e0eba1;
+  --middle: #ffa500;
+  --dark: #383705;
+  font-family: "Rubik";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
 }
 
+/***********************
+CONTAINER
+***********************/
+.container {
+  margin: 0 auto;
+  width: 1280px;
+}
 
+@media (max-width: 1280px) {
+  .container {
+    width: 100%;
+  }
+}
+
+/***********************
+MAIN
+***********************/
 .main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: calc(100vh - 60px);
-  background-color: #555;
+  background-color: var(--light);
 }
-
 
 /******************
 CARD
@@ -41,7 +58,6 @@ CARD
   position: relative;
 }
 
-
 /******************
 VIDEO BUTTON
 ******************/
@@ -49,15 +65,15 @@ VIDEO BUTTON
   width: 100px;
   height: 100px;
   background: none;
-  background-image: url('../assets/svg/play-in.svg');
-  background-repeat:no-repeat;
-  position:absolute;
-  left:0%;
-  right:0%;
-  top:0%;
-  bottom:0%;
-  margin:auto;
-  background-size:contain;
+  background-image: url("../assets/svg/play-in.svg");
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  margin: auto;
+  background-size: contain;
   background-position: center;
   transition: filter 0.5s;
   cursor: pointer;
@@ -82,14 +98,12 @@ VIDEO BUTTON
   }
 }
 
-
 /******************
 VIDEO
 ******************/
 .video {
   width: 100%;
 }
-
 
 /******************
 PROGRESS
@@ -106,7 +120,6 @@ PROGRESS
 .current-time {
   background: #ffd900;
 }
-
 
 /******************
 PLAYER CONTROLS
@@ -193,13 +206,12 @@ PLAYER CONTROLS
   width: 130px;
 }
 
-
 .skip-btn {
   width: 40px;
   height: 40px;
-  border:0;
-  outline:0;
-  cursor:pointer;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
   background: none;
   transition: skale 0.5s;
 }
@@ -221,18 +233,13 @@ PLAYER CONTROLS
   transform: rotate(360deg) scale(1.2);
 }
 
-
 /***********************
 FOOTER
 ***********************/
 .footer {
+  width: 100%;
   height: 60px;
-  background-color: #000;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+  background-color: var(--dark);
 }
 
 .footer-content {
@@ -248,7 +255,7 @@ FOOTER
   justify-content: space-between;
   flex-direction: row;
   gap: 20px;
-  color: #fff
+  color: #fff;
 }
 
 .footer-github {
@@ -258,7 +265,7 @@ FOOTER
 }
 
 .footer-github:hover {
-  color: var(--gold);
+  color: var(--middle);
 }
 
 .footer-logo {
@@ -273,5 +280,6 @@ FOOTER
 }
 
 .footer-logo:hover {
-  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  filter: invert(57%) sepia(67%) saturate(1222%) hue-rotate(2deg)
+    brightness(105%) contrast(107%);
 }
