@@ -16,6 +16,10 @@ html {
   font-size: 24px;
 }
 
+
+/***********************
+CONTAINER
+***********************/
 .container {
   margin: 0 auto;
   width: 1000px;
@@ -27,6 +31,7 @@ html {
     min-width: 320px;
   }
 }
+
 
 /***********************
 HEADER
@@ -62,6 +67,7 @@ HEADER
   background-repeat: no-repeat;
 }
 
+
 /***********************
 MAIN
 ***********************/
@@ -77,6 +83,10 @@ MAIN
   background-repeat: no-repeat;
 }
 
+
+/***********************
+SCORE
+***********************/
 .score {
   display: flex;
   flex-direction: column;
@@ -106,7 +116,8 @@ MAIN
   display: inline-block;
   width: 81px;
   height: 122px;
-  background-image: url("../assets/svg/x.png");
+  background-image: url("../assets/img/x.png");
+  background-position: 0 -10px;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -115,7 +126,8 @@ MAIN
   display: inline-block;
   width: 81px;
   height: 122px;
-  background-image: url("../assets/svg/0.png");
+  background-image: url("../assets/img/0.png");
+  background-position: 0 -10px;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -124,7 +136,8 @@ MAIN
   display: inline-block;
   width: 81px;
   height: 122px;
-  background-image: url("../assets/svg/o.png");
+  background-image: url("../assets/img/o.png");
+  background-position: 0 -10px;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -133,21 +146,34 @@ MAIN
   display: inline-block;
   width: 81px;
   height: 122px;
-  background-image: url("../assets/svg/0.png");
+  background-image: url("../assets/img/0.png");
+  background-position: 0 -10px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
+
+/***********************
+PLAYGROUND
+***********************/
 .playground {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 300px;
   height: 300px;
-/* https://snipp.ru/html-css/style-cursors */
-  cursor: url("../assets/svg/x.png") 50 50, auto;
 }
 
+.playground.x {
+/* https://snipp.ru/html-css/style-cursors */
+  cursor: url("../assets/img/x.png") 50 50, auto;
+}
+
+.playground.o {
+    cursor: url("../assets/img/o.png") 50 50, auto;
+  }
+  
+  
 
 .cell {
   width: 100px;
@@ -161,6 +187,17 @@ MAIN
 .highlight {
   opacity: 0.5;
 }
+
+.cell.x {
+  background-image: url("../assets/img/x.png");
+  background-position: 0px -10px;
+}
+
+.cell.o {
+  background-image: url("../assets/img/o.png");
+  background-position: 0px -10px;
+}
+
 
 .btn {
   width: 100px;
