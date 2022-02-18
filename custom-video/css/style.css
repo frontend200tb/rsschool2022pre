@@ -1,0 +1,285 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  --light: #e0eba1;
+  --middle: #ffa500;
+  --dark: #383705;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+/***********************
+CONTAINER
+***********************/
+.container {
+  margin: 0 auto;
+  width: 1280px;
+}
+
+@media (max-width: 1280px) {
+  .container {
+    width: 100%;
+  }
+}
+
+/***********************
+MAIN
+***********************/
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 60px);
+  background-color: var(--light);
+}
+
+/******************
+CARD
+******************/
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin: 0 auto;
+  width: 750px;
+  background-color: #999;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  position: relative;
+}
+
+/******************
+VIDEO BUTTON
+******************/
+.video-btn {
+  width: 100px;
+  height: 100px;
+  background: none;
+  background-image: url("../assets/svg/play-in.svg");
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  margin: auto;
+  background-size: contain;
+  background-position: center;
+  transition: filter 0.5s;
+  cursor: pointer;
+}
+
+.video-btn:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+  animation: rotation 2s infinite linear;
+}
+
+.video-btn.pause {
+  display: none;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+/******************
+VIDEO
+******************/
+.video {
+  width: 100%;
+}
+
+/******************
+PROGRESS
+******************/
+.progress {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 20px;
+  background-color: #000;
+  cursor: ew-resize;
+}
+
+.current-time {
+  background: #ffd900;
+}
+
+/******************
+PLAYER CONTROLS
+******************/
+.player__controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.play-btn {
+  width: 40px;
+  height: 40px;
+  background-image: url(../assets/svg/play.svg);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.play-btn:hover {
+  transform: rotate(360deg) scale(1.3);
+}
+
+.play-btn.pause {
+  background-image: url(../assets/svg/pause.svg);
+}
+
+.time {
+  width: 110px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.speaker-btn {
+  width: 40px;
+  height: 40px;
+  background-image: url(../assets/svg/speaker.svg);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.speaker-btn:hover {
+  transform: rotate(360deg) scale(1.3);
+}
+
+.speaker-btn.mute {
+  background-image: url(../assets/svg/mute.svg);
+}
+
+.volume-num {
+  width: 40px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.volume-range {
+  width: 130px;
+}
+
+.speed-btn {
+  width: 40px;
+  height: 40px;
+  background-image: url(../assets/svg/speed.svg);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.speed-btn:hover {
+  transform: rotate(360deg);
+}
+
+.speed-num {
+  width: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.speed-range {
+  width: 130px;
+}
+
+.skip-btn {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background: none;
+  transition: skale 0.5s;
+}
+
+.skip-left {
+  background-image: url(../assets/svg/skip.svg);
+  transform: rotate(180deg);
+}
+
+.skip-right {
+  background-image: url(../assets/svg/skip.svg);
+}
+
+.skip-left:hover {
+  transform: rotate(180deg) scale(1.2);
+}
+
+.skip-right:hover {
+  transform: rotate(360deg) scale(1.2);
+}
+
+/***********************
+FOOTER
+***********************/
+.footer {
+  width: 100%;
+  height: 60px;
+  background-color: var(--dark);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.footer-data {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 20px;
+  color: #fff;
+}
+
+.footer-github {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.5s;
+}
+
+.footer-github:hover {
+  color: var(--middle);
+}
+
+.footer-logo {
+  display: block;
+  margin: 5px 0;
+  width: 135px;
+  height: 50px;
+  background-image: url(../assets/svg/rss.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: filter 0.5s;
+}
+
+.footer-logo:hover {
+  filter: invert(57%) sepia(67%) saturate(1222%) hue-rotate(2deg)
+    brightness(105%) contrast(107%);
+}
