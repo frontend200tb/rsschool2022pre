@@ -16,6 +16,10 @@ html {
   font-size: 24px;
 }
 
+
+/***********************
+CONTAINER
+***********************/
 .container {
   margin: 0 auto;
   width: 1000px;
@@ -27,6 +31,7 @@ html {
     min-width: 320px;
   }
 }
+
 
 /***********************
 HEADER
@@ -47,7 +52,7 @@ HEADER
   margin: 5px 0;
   width: 320px;
   height: 50px;
-  background-image: url(../assets/svg/200tbgamestudio.svg);
+  background-image: url("../assets/svg/200tbgamestudio.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -57,10 +62,11 @@ HEADER
   width: 200px;
   height: 50px;
   text-align: right;
-  background-image: url(../assets/svg/tictactoe.svg);
+  background-image: url("../assets/svg/tictactoe.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
+
 
 /***********************
 MAIN
@@ -77,66 +83,79 @@ MAIN
   background-repeat: no-repeat;
 }
 
+
+/***********************
+SCORE
+***********************/
 .score {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  width: 120px;
-  height: 300px;
+  gap: 10px;
 }
 
 .score-title {
   width: 100px;
   height: 50px;
   border-radius: 20px;
-  background-image: url(../assets/svg/score.svg);
+  background-image: url("../assets/svg/score.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-color: var(--dark);
 }
 
 .score-row {
+  height: 100px;
+  text-align: center;
   border-radius: 20px;
   background-color: var(--dark);
 }
 
 .img-x {
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-image: url(../assets/svg/x.svg);
+  width: 81px;
+  height: 122px;
+  background-image: url("../assets/img/x.png");
+  background-position: 0 -10px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .count-x {
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-image: url(../assets/svg/x.svg);
+  width: 81px;
+  height: 122px;
+  background-image: url("../assets/img/0.png");
+  background-position: 0 -10px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .img-o {
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-image: url(../assets/svg/o.svg);
+  width: 81px;
+  height: 122px;
+  background-image: url("../assets/img/o.png");
+  background-position: 0 -10px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .count-o {
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-image: url(../assets/svg/o.svg);
+  width: 81px;
+  height: 122px;
+  background-image: url("../assets/img/0.png");
+  background-position: 0 -10px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
+
+/***********************
+PLAYGROUND
+***********************/
 .playground {
   display: flex;
   flex-direction: row;
@@ -145,18 +164,45 @@ MAIN
   height: 300px;
 }
 
+.playground.x {
+/* https://snipp.ru/html-css/style-cursors */
+  cursor: url("../assets/img/x.png") 50 50, auto;
+}
+
+.playground.o {
+    cursor: url("../assets/img/o.png") 50 50, auto;
+  }
+  
+  
+
 .cell {
   width: 100px;
   height: 100px;
   border: 4px solid var(--light);
   border-radius: 20px;
   background-color: var(--dark);
+  opacity: 1;
 }
+
+.highlight {
+  opacity: 0.5;
+}
+
+.cell.x {
+  background-image: url("../assets/img/x.png");
+  background-position: 0px -10px;
+}
+
+.cell.o {
+  background-image: url("../assets/img/o.png");
+  background-position: 0px -10px;
+}
+
 
 .btn {
   width: 100px;
   height: 50px;
-  background-image: url(../assets/svg/start.svg);
+  background-image: url("../assets/svg/start.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-color: var(--dark);
@@ -189,7 +235,7 @@ FOOTER
   display: block;
   width: 400px;
   height: 50px;
-  background-image: url(../assets/svg/2022frontend200tb.svg);
+  background-image: url("../assets/svg/2022frontend200tb.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -203,7 +249,7 @@ FOOTER
   margin: 5px 0;
   width: 135px;
   height: 50px;
-  background-image: url(../assets/svg/rss.svg);
+  background-image: url("../assets/svg/rss.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
