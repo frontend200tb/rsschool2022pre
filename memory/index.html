@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ivan Kashirin">
+  <meta name="copyright" content="200TB Web Studio">
+  <meta name="description" content="memory ivan kashirin application">
+  <meta name="keywords" content="memory, rsschool">
+  <title>frontend200tb memory</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/favicon.png">
+</head>
+
+<body>
+  <div class="page">
+
+
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <logo class="logo-left"></logo>
+          <logo class="logo-right"></logo>
+        </div>
+      </div>
+    </header>
+
+
+    <main class="main">
+      <!-- <div class="game__winner js-winner">
+        <span>You win!</span>
+
+        <div class="game__winner-action">
+          <span class="type__action-btn" onclick="hideWinnerWindow();">Ok</span>
+        </div>
+      </div> -->
+
+      <div class="type">
+        <span class="type__caption">Select type: </span>
+        <select class="type__select  js-type-select" name="type">
+          <option value="2-2" disabled>2-2</option>
+          <option value="4-4" disabled>4-4</option>
+          <option value="6-6" disabled>6-6</option>
+          <option value="8-8" disabled>8-8</option>
+          <option value="10-10" disabled>10-10</option>
+        </select>
+      </div>
+
+      <!-- <div class="text-center">
+        <div class="timer js-timer">
+          <i class="js-ts hidden"></i>
+          <span class="timer__item js-min">00</span>
+          <span class="timer__item">:</span>
+          <span class="timer__item js-sec">00</span>
+          <span class="timer__item">:</span>
+          <span class="timer__item js-milli">00</span>
+        </div>
+      </div> -->
+
+
+
+      <div class="records">
+        <h3 class="records__caption">Records</h3>
+        <ul class="records__list js-records"></ul>
+      </div>
+
+      <div class="js-main-template hidden">
+        <ul class="game__container  s%game_size%">
+          %items%
+        </ul>
+      </div>
+
+      <div class="js-item-template hidden">
+        <li class="game__item js-item" onclick="showItem(this);" style="width: %width%;"><img class="game__item-img"
+            src="assets/svg/1.svg#i_%id%"></li>
+      </div>
+
+      <div class="js-records-template hidden">
+        <li class="records__list-item">
+          <div class="records__list-type">%type%</div>
+          <div class="records__list-timer">
+            <div class="timer js-timer">
+              <span class="timer__item">%min%</span>
+              <span class="timer__item">:</span>
+              <span class="timer__item">%sec%</span>
+              <span class="timer__item">:</span>
+              <span class="timer__item">%milli%</span>
+            </div>
+          </div>
+        </li>
+      </div>
+
+      <div class="playground"></div>
+
+      <button class="btn"></button>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <a class="footer-github" href="https://github.com/frontend200tb" title="frontend200tb" target="_blank"></a>
+
+          <a class="footer-logo" href="https://rs.school/js-stage0/" title="Rolling Scopes School" target="_blank"></a>
+        </div>
+      </div>
+    </footer>
+
+
+
+  </div>
+  <script src="js/index.js"></script>
+</body>
+
+</html>

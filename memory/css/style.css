@@ -1,0 +1,374 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+/* #ece284; */
+.page {
+  --light: #ece284;
+  --middle: #ffa500;
+  --dark: #8b6f20;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+}
+
+
+/***********************
+CONTAINER
+***********************/
+.container {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    width: 100%;
+    min-width: 320px;
+  }
+}
+
+
+/***********************
+HEADER
+***********************/
+.header {
+  height: 60px;
+  background-color: var(--dark);
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/*** Header - Logo ***/
+.logo-left {
+  margin: 5px 0;
+  width: 320px;
+  height: 50px;
+  background-image: url("../assets/svg/200tbgamestudio.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.logo-right {
+  margin: 5px 0;
+  width: 150px;
+  height: 50px;
+  text-align: right;
+  background-image: url("../assets/svg/memory.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+/***********************
+MAIN
+***********************/
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: calc(100vh - 120px);
+  min-height: 320px;
+  background-color: var(--light);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+.heading {
+  font-size: 40px;
+  padding: 30px 0;
+  text-align: center;
+}
+
+
+.playground {
+  padding: 50px 0 10px;
+  width: 300px;
+  height: 300px;
+}
+
+.game:empty {
+  display: none;
+}
+.game__container {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  border-top: 1px solid;
+  border-left: 1px solid;
+
+  margin: 0 auto;
+
+  position: relative;
+  z-index: 1;
+}
+.game__winner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  font-size: 28px;
+
+  background-color: rgba(0,0,0, 0.8);
+  color: #fff;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: .3s;
+}
+.game__winner.show {
+  visibility: visible;
+  opacity: 1;
+}
+.game__winner-action {
+  padding-top: 20px;
+}
+
+
+.game__container.s2 {
+  max-width: 150px;
+}
+.game__container.s4 {
+  max-width: 300px;
+}
+.game__container.s6 {
+  max-width: 450px;
+}
+.game__container.s8 {
+  max-width: 584px;
+}
+.game__container.s10 {
+  max-width: 730px;
+}
+.game__item {
+  font-size: 0;
+  width: 100%;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+  position: relative;
+  cursor: pointer;
+}
+
+.game__item:before {
+  content: "";
+  padding-top: 100%;
+  display: block;
+}
+
+.game__item:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: #333;
+  transition: 0.3s;
+
+  opacity: 1;
+}
+.game__item.show:after {
+  opacity: 0;
+}
+
+.game__item-img {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 80%;
+  max-height: 80%;
+
+  width: auto;
+  height: auto;
+
+  transition: 0.3s;
+  transform: scale(0);
+}
+
+.game__item.show .game__item-img {
+  transform: scale(1);
+}
+
+.type {
+  padding: 0 15px;
+  text-align: center;
+  display: block;
+}
+.type__caption {
+  font-size: 20px;
+  display: inline-block;
+  margin-right: 10px;
+}
+.type__select {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid;
+  padding: 5px;
+  border-radius: 3px;
+}
+.type__select option {
+  color: #000;
+}
+.type__select option[disabled] {
+  color: #999;
+}
+
+.type__action {
+  padding: 20px 0;
+}
+
+.game-started .type {
+  display: none;
+}
+
+.type__action-btn {
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 5px 15px;
+
+  background-color: #f90;
+
+  border: 1px solid;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.timer {
+  display: inline-flex;
+  justify-content: center;
+  padding: 0 10px;
+}
+.timer__item {
+  font-size: 1rem;
+  min-width: 18px;
+  text-align: center;
+
+}
+
+
+.records {
+  padding: 10px;
+  padding-top: 50px;
+  text-align: center;
+}
+.records__caption {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.records__list {}
+.records__list-item {
+  border: 1px solid;
+
+  display: flex;
+  justify-content: space-between;
+
+  list-style-type: none;
+  max-width: 250px;
+  padding: 10px;
+  margin: 0 auto 10px;
+}
+.records__list-type {
+
+}
+.records__list-timer {
+  padding-left: 20px;
+  border-left: 1px solid;
+}
+
+
+.btn {
+  width: 100px;
+  height: 50px;
+  background-image: url("../assets/svg/start.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: var(--dark);
+  border: 0;
+  border-radius: 20px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-10px);
+}
+
+/***********************
+FOOTER
+***********************/
+.footer {
+  height: 60px;
+  background-color: var(--dark);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/*** Footer - Logo ***/
+.footer-github {
+  display: block;
+  width: 400px;
+  height: 50px;
+  background-image: url("../assets/svg/2022frontend200tb.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.footer-github:hover {
+  color: var(--gold);
+}
+
+.footer-logo {
+  display: block;
+  margin: 5px 0;
+  width: 135px;
+  height: 50px;
+  background-image: url("../assets/svg/rss.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.footer-logo:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
