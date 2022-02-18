@@ -17,3 +17,7 @@ https://rolling-scopes-school.github.io/frontend200tb-JSFEPRESCHOOL/random-jokes
 https://rolling-scopes-school.github.io/frontend200tb-JSFEPRESCHOOL/image-gallery
 
 https://rolling-scopes-school.github.io/frontend200tb-JSFEPRESCHOOL/movie-app
+
+https://rolling-scopes-school.github.io/frontend200tb-JSFEPRESCHOOL/tic-tac-toe
+
+https://rolling-scopes-school.github.io/frontend200tb-JSFEPRESCHOOL/memory
