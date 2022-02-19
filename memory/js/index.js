@@ -21,24 +21,23 @@ let secondCard;
 let currentScore = 0;
 let countOpenCards = 0;
 let countAllCards = 16;
-let records = [];
 
 
 /*****************
 Local storage
 *****************/
-records = localStorage.getItem('records').split(',');
+let records = localStorage.getItem('records');
 console.log('get local storage records', records);
 if (!records) {
   let records = [];
-  console.log('records', records);
-  localStorage.setItem('records', records);
-  console.log('set local storage records', records);
+} else {
+  records = records.split(',');
 }
 
-
-for (let i = 0; i < records.length; i++) {
-  place[i].textContent = records[i];
+if (records.length > 0) {
+  for (let i = 0; i < records.length; i++) {
+    place[i].textContent = records[i];
+  }
 }
 
 
