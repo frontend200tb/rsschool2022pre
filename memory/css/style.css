@@ -13,7 +13,7 @@ html {
   --middle: #ffa500;
   --dark: #8b6f20;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 
@@ -75,6 +75,7 @@ MAIN
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   min-height: calc(100vh - 120px);
   background-color: var(--light);
   background-size: cover;
@@ -103,8 +104,12 @@ SCORE
   background-color: var(--dark);
 }
 
-.score-row {
-  width: 220px;
+caption {
+  width: 150px;
+}
+
+.place {
+  padding: 0 10px;
   text-align: left;
   border-radius: 20px;
   background-color: var(--dark);
@@ -118,8 +123,7 @@ PLAYGROUND
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 500px;
-  perspective: 1000px;
+  width: 450px;
 }
 
 .card {
