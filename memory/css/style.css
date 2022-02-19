@@ -75,28 +75,58 @@ MAIN
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
   min-height: calc(100vh - 120px);
-  min-height: 320px;
   background-color: var(--light);
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.playground {
-  width: 500px;
-  margin: auto;
+
+/***********************
+SCORE
+***********************/
+.score {
   display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-title {
+  width: 100px;
+  height: 50px;
+  border-radius: 20px;
+  background-image: url("../assets/svg/score.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: var(--dark);
+}
+
+.score-row {
+  width: 220px;
+  text-align: left;
+  border-radius: 20px;
+  background-color: var(--dark);
+}
+
+
+/***********************
+PLAYGROUND
+***********************/
+.playground {
+  display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
+  width: 500px;
   perspective: 1000px;
 }
 
 .card {
   width: 100px;
-  height: 130px;
+  height: 100px;
   margin: 5px;
   position: relative;
-  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
   transform: scale(1);
   transform-style: preserve-3d;
   transition: transform .5s;
@@ -111,18 +141,43 @@ MAIN
   transform: rotateY(180deg);
 }
 
-.front-face {
+.card img {
+  border-radius: 20px;
+}
+
+.face {
   transform: rotateY(180deg);
 }
 
-.front-face,
-.back-face {
+.face,
+.cover {
   width: 100%;
   height: 100%;
   position: absolute;
   border-radius: 5px;
   background-color: var(--dark);
   backface-visibility: hidden;
+}
+
+
+/***********************
+BUTTON
+***********************/
+.btn {
+  width: 100px;
+  height: 50px;
+  background-image: url("../assets/svg/start.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: var(--dark);
+  border: 0;
+  border-radius: 20px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-10px);
 }
 
 /***********************
