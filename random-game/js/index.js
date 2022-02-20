@@ -4,21 +4,42 @@ console.log('frontend200tb random start');
 /*****************
 Константы
 *****************/
-var btn = document.querySelector('.btn')
-var playground = document.querySelector('.playground')
-var $time = document.querySelector('#time')
-var $result = document.querySelector('#result')
-var $timeHeader = document.querySelector('#time-header')
-var $resultHeader = document.querySelector('#result-header')
-var $gameTime = document.querySelector('#game-time')
+const place = document.querySelectorAll('.place-count');
+const count = document.querySelector('.count');
+const btn = document.querySelector('.btn');
+const playground = document.querySelector('.playground');
+const time = document.querySelector('.time');
+const resultHeader = document.querySelector('#result-header');
+const result = document.querySelector('#result');
+const timeHeader = document.querySelector('#time-header');
+const gameTime = document.querySelector('#game-time');
 
 
 /*****************
 Переменные
 *****************/
-var colors = ['#CB356B', '#BD3F32', '#3A1C71', '#D76D77', '#283c86', '#45a247', '#8e44ad', '#155799', '#159957', '#000046', '#1CB5E0', '#2F80ED']
-var score = 0
-var isGameStarted = false
+let colors = ['#CB356B', '#BD3F32', '#3A1C71', '#D76D77', '#283c86', '#45a247', '#8e44ad', '#155799', '#159957', '#000046', '#1CB5E0', '#2F80ED'];
+let currentScore = 0;
+let isGameStarted = false;
+
+
+/*****************
+Local storage
+*****************/
+let records = localStorage.getItem('squares');
+console.log('get local storage records', records);
+if (!records) {
+  console.log('local storage empty');
+  records = [];
+} else {
+  records = records.split(',');
+}
+
+if (records.length > 0) {
+  for (let i = 0; i < records.length; i++) {
+    place[i].textContent = records[i];
+  }
+}
 
 
 /*****************
@@ -33,46 +54,15 @@ function hide($el) {
 }
 
 
-function startGame() {
-  score = 0
-  setGameTime()
-  $gameTime.setAttribute('disabled', 'true')
-  isGameStarted = true
-  hide(btn)
-
-  var interval = setInterval(function() {
-    var time = parseFloat($time.textContent)
-    
-    if (time <= 0) {
-      clearInterval(interval)
-      endGame()
-    } else {
-      $time.textContent = (time - 0.1).toFixed(1)
-    }
-  }, 100)
-
-  renderBox()
-}
-
 function setGameScore() {
-  $result.textContent = score.toString()
+  result.textContent = currentScore.toString()
 }
 
 function setGameTime() {
-  var time = +$gameTime.value
-  $time.textContent = time.toFixed(1)
-  show($timeHeader)
-  hide($resultHeader)
-}
-
-function endGame() {
-  isGameStarted = false
-  setGameScore()
-  $gameTime.removeAttribute('disabled')
-  show(btn)
-  playground.innerHTML = ''
-  hide($timeHeader)
-  show($resultHeader)
+  let times = +gameTime.value
+  time.textContent = times.toFixed(1)
+  show(timeHeader)
+  hide(resultHeader)
 }
 
 function handleBoxClick(event) {
@@ -81,20 +71,20 @@ function handleBoxClick(event) {
   }
 
   if (event.target.dataset.box) {
-    score++
+    currentScore++
+    count.textContent = currentScore + ' hits';
     renderBox()
   }
 }
 
 function renderBox() {
   playground.innerHTML = ''
-  var box = document.createElement('div')
-  var boxSize = getRandom(30, 100)
-  var gameSize = playground.getBoundingClientRect()
-  var maxTop = gameSize.height - boxSize
-  var maxLeft = gameSize.width - boxSize
-  // [1, 2, 3] -> length == 3
-  var randomColorIndex = getRandom(0, colors.length)
+  let box = document.createElement('div')
+  let boxSize = getRandom(30, 100)
+  let gameSize = playground.getBoundingClientRect()
+  let maxTop = gameSize.height - boxSize
+  let maxLeft = gameSize.width - boxSize
+  let randomColorIndex = getRandom(0, colors.length)
 
   box.style.height = box.style.width = boxSize + 'px'
   box.style.position = 'absolute'
@@ -114,10 +104,73 @@ function getRandom(min, max) {
 
 
 /*****************
+START GAME
+*****************/
+function startGame() {
+  currentScore = 0;
+  setGameTime()
+  gameTime.setAttribute('disabled', 'true')
+  isGameStarted = true
+  hide(btn)
+
+  let interval = setInterval(function() {
+    let times = parseFloat(time.textContent)
+    
+    if (times <= 0) {
+      clearInterval(interval)
+      finishGame()
+    } else {
+      time.textContent = (times - 0.1).toFixed(1)
+    }
+  }, 100)
+
+  renderBox()
+}
+
+
+/*****************
+FINISH GAME
+*****************/
+const newScore = () => {
+  console.log('newScore', currentScore);
+  if (records.length >= 10) {
+    records.shift();
+    records.push(currentScore);
+    console.log('finish records', records);
+    for (let i = 0; i < records.length - 1; i++) {
+      place[i].textContent = place[i+1].textContent;
+      console.log(i);
+    }
+  } else {
+    records.push(currentScore);
+    console.log('finish records', records);
+  }
+    place[records.length - 1].textContent = currentScore;
+}
+
+const newLocalStorage = () => {
+  localStorage.setItem('squares', records);
+  console.log('set local storage records', records);  
+}
+
+const finishGame = () => {
+  isGameStarted = false
+  setGameScore()
+  newScore();
+  newLocalStorage();
+  gameTime.removeAttribute('disabled')
+  show(btn)
+  playground.innerHTML = ''
+  hide(timeHeader)
+  show(resultHeader)
+}
+
+
+/*****************
 События
 *****************/
 btn.addEventListener('click', startGame)
 playground.addEventListener('click', handleBoxClick)
-$gameTime.addEventListener('input', setGameTime)
+gameTime.addEventListener('input', setGameTime)
 
 console.log('frontend200tb random finish');

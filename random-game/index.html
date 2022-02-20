@@ -28,9 +28,73 @@
 
 
     <main class="main">
+      <div class="score">
+        <div class="score-title"></div>
+
+
+        <table>
+          <caption>last 10 games</caption>
+          <thead>
+            <tr>
+              <th>game</th>
+              <th>hits</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td class="count" colspan="2">0 hits</td>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr class="place">
+              <td>1</td>
+              <td class="place-count" data-place="1">0</td>
+            </tr>
+            <tr class="place">
+              <td>2</td>
+              <td class="place-count" data-place="2">0</td>
+            </tr>
+            <tr class="place">
+              <td>3</td>
+              <td class="place-count" data-place="3">0</td>
+            </tr>
+            <tr class="place">
+              <td>4</td>
+              <td class="place-count" data-place="4">0</td>
+            </tr>
+            <tr class="place">
+              <td>5</td>
+              <td class="place-count" data-place="5">0</td>
+            </tr>
+            <tr class="place">
+              <td>6</td>
+              <td class="place-count" data-place="6">0</td>
+            </tr>
+            <tr class="place">
+              <td>7</td>
+              <td class="place-count" data-place="7">0</td>
+            </tr>
+            <tr class="place">
+              <td>8</td>
+              <td class="place-count" data-place="8">0</td>
+            </tr>
+            <tr class="place">
+              <td>9</td>
+              <td class="place-count" data-place="9">0</td>
+            </tr>
+            <tr class="place">
+              <td>10</td>
+              <td class="place-count" data-place="10">0</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+
       <div class="app">
         <div class="app__header">
-          <h1 id="time-header">Game time <span id="time">5.0</span></h1>
+          <h1 id="time-header">Game time <span class="time">5.0</span></h1>
           <h1 id="result-header" class="hide">Result: <span id="result"></span></h1>
         </div>
 
@@ -42,7 +106,7 @@
 
         <div class="app__footer">
           <div class="input">
-            <label for="game-time">Game time, (sec)</label>
+            <label for="game-time">Set game time, (sec)</label>
             <input type="number" id="game-time" min="5" step="1" value="5">
           </div>
         </div>
