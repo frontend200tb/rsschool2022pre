@@ -78,15 +78,47 @@ MAIN
   gap: 20px;
   min-height: calc(100vh - 120px);
   background-color: var(--light);
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 
+/***********************
+SCORE
+***********************/
+.score {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-title {
+  width: 100px;
+  height: 50px;
+  border-radius: 20px;
+  background-image: url("../assets/svg/score.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: var(--dark);
+}
+
+caption {
+  width: 150px;
+}
+
+.place {
+  padding: 0 10px;
+  text-align: left;
+  border-radius: 20px;
+  background-color: var(--dark);
+}
+
+
+/***********************
+APP
+***********************/
 .app {
   background: var(--light);
-  width: 600px;
-  margin: 0 auto;
 }
 
 .app__header {
@@ -118,7 +150,6 @@ MAIN
   display: inline-block;
   max-width: 100%;
   margin-bottom: 3px;
-  color: #acacac;
   font-family: GothamPro,sans-serif;
   font-size: .8rem;
   font-weight: normal;
