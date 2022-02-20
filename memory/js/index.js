@@ -29,7 +29,8 @@ Local storage
 let records = localStorage.getItem('records');
 console.log('get local storage records', records);
 if (!records) {
-  let records = [];
+  console.log('local storage empty');
+  records = [];
 } else {
   records = records.split(',');
 }
