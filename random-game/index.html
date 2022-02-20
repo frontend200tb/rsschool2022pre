@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Ivan Kashirin">
   <meta name="copyright" content="200TB Web Studio">
-  <meta name="description" content="memory ivan kashirin application">
-  <meta name="keywords" content="memory, rsschool">
-  <title>frontend200tb memory</title>
+  <meta name="description" content="random-game ivan kashirin application">
+  <meta name="keywords" content="random-game, rsschool">
+  <title>frontend200tb random-game</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="assets/favicon.jpg">
+  <link rel="icon" href="assets/favicon.svg">
 </head>
 
 <body>
@@ -28,154 +28,25 @@
 
 
     <main class="main">
-      <div class="score">
-        <div class="score-title"></div>
-
-
-        <table>
-          <caption>last 10 games</caption>
-          <thead>
-            <tr>
-              <th>game</th>
-              <th>moves</th>
-            </tr>
-          </thead>
-          <tfoot>
-            <tr>
-              <td class="count" colspan="2">0 moves</td>
-            </tr>
-          </tfoot>
-          <tbody>
-            <tr class="place">
-              <td>1</td>
-              <td class="place-count" data-place="1">0</td>
-            </tr>
-            <tr class="place">
-              <td>2</td>
-              <td class="place-count" data-place="2">0</td>
-            </tr>
-            <tr class="place">
-              <td>3</td>
-              <td class="place-count" data-place="3">0</td>
-            </tr>
-            <tr class="place">
-              <td>4</td>
-              <td class="place-count" data-place="4">0</td>
-            </tr>
-            <tr class="place">
-              <td>5</td>
-              <td class="place-count" data-place="5">0</td>
-            </tr>
-            <tr class="place">
-              <td>6</td>
-              <td class="place-count" data-place="6">0</td>
-            </tr>
-            <tr class="place">
-              <td>7</td>
-              <td class="place-count" data-place="7">0</td>
-            </tr>
-            <tr class="place">
-              <td>8</td>
-              <td class="place-count" data-place="8">0</td>
-            </tr>
-            <tr class="place">
-              <td>9</td>
-              <td class="place-count" data-place="9">0</td>
-            </tr>
-            <tr class="place">
-              <td>10</td>
-              <td class="place-count" data-place="10">0</td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-
-
-      <div class="playground">
-        <div class="card" data-img="apple">
-          <img class="face" src="assets/img/apple100.jpg" alt="apple">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
+      <div class="app">
+        <div class="app__header">
+          <h1 id="time-header">Game time <span id="time">5.0</span></h1>
+          <h1 id="result-header" class="hide">Result: <span id="result"></span></h1>
         </div>
 
-        <div class="card" data-img="apple">
-          <img class="face" src="assets/img/apple100.jpg" alt="apple">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
+        <div class="app__content">
+          <button class="btn"></button>
+
+          <div class="playground"></div>
         </div>
 
-        <div class="card" data-img="apricot">
-          <img class="face" src="assets/img/apricot100.jpg" alt="apricot">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
-        </div>
-
-        <div class="card" data-img="apricot">
-          <img class="face" src="assets/img/apricot100.jpg" alt="apricot">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
-        </div>
-
-        <div class="card" data-img="avocado">
-          <img class="face" src="assets/img/avocado100.jpg" alt="avocado">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
-        </div>
-
-        <div class="card" data-img="avocado">
-          <img class="face" src="assets/img/avocado100.jpg" alt="avocado">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
-        </div>
-
-        <div class="card" data-img="banana">
-          <img class="face" src="assets/img/banana100.jpg" alt="banana">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
-        </div>
-
-        <div class="card" data-img="banana">
-          <img class="face" src="assets/img/banana100.jpg" alt="banana">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
-        </div>
-
-        <div class="card" data-img="coconut">
-          <img class="face" src="assets/img/coconut100.jpg" alt="coconut">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
-        </div>
-
-        <div class="card" data-img="coconut">
-          <img class="face" src="assets/img/coconut100.jpg" alt="coconut">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
-        </div>
-
-        <div class="card" data-img="dates">
-          <img class="face" src="assets/img/dates100.jpg" alt="dates">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
-        </div>
-
-        <div class="card" data-img="dates">
-          <img class="face" src="assets/img/dates100.jpg" alt="dates">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
-        </div>
-
-        <div class="card" data-img="grapefruit">
-          <img class="face" src="assets/img/grapefruit100.jpg" alt="grapefruit">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
-        </div>
-
-        <div class="card" data-img="grapefruit">
-          <img class="face" src="assets/img/grapefruit100.jpg" alt="grapefruit">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
-        </div>
-
-        <div class="card" data-img="grapes">
-          <img class="face" src="assets/img/grapes100.jpg" alt="grapes">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
-        </div>
-
-        <div class="card" data-img="grapes">
-          <img class="face" src="assets/img/grapes100.jpg" alt="grapes">
-          <img class="cover" src="assets/img/fruits100.jpg" alt="fruits">
+        <div class="app__footer">
+          <div class="input">
+            <label for="game-time">Game time, (sec)</label>
+            <input type="number" id="game-time" min="5" step="1" value="5">
+          </div>
         </div>
       </div>
-
-
-      <button class="btn"></button>
     </main>
 
     <footer class="footer">

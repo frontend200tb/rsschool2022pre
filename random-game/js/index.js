@@ -1,181 +1,123 @@
-console.log('frontend200tb memory start');
+console.log('frontend200tb random start');
 
 
 /*****************
 Константы
 *****************/
-const place = document.querySelectorAll('.place-count');
-console.log('games', place);
-const count = document.querySelector('.count');
-const cards = document.querySelectorAll('.card');
-const btn = document.querySelector('.btn');
+var btn = document.querySelector('.btn')
+var playground = document.querySelector('.playground')
+var $time = document.querySelector('#time')
+var $result = document.querySelector('#result')
+var $timeHeader = document.querySelector('#time-header')
+var $resultHeader = document.querySelector('#result-header')
+var $gameTime = document.querySelector('#game-time')
 
 
 /*****************
 Переменные
 *****************/
-let hasFlippedCard = false;
-let lockCard = false;
-let firstCard;
-let secondCard;
-let currentScore = 0;
-let countOpenCards = 0;
-let countAllCards = 16;
-
-
-/*****************
-Local storage
-*****************/
-let records = localStorage.getItem('records');
-console.log('get local storage records', records);
-if (!records) {
-  console.log('local storage empty');
-  records = [];
-} else {
-  records = records.split(',');
-}
-
-if (records.length > 0) {
-  for (let i = 0; i < records.length; i++) {
-    place[i].textContent = records[i];
-  }
-}
+var colors = ['#CB356B', '#BD3F32', '#3A1C71', '#D76D77', '#283c86', '#45a247', '#8e44ad', '#155799', '#159957', '#000046', '#1CB5E0', '#2F80ED']
+var score = 0
+var isGameStarted = false
 
 
 /*****************
 Функции
 *****************/
-
-
-/*****************
-start game
-*****************/
-function unflipLastTwoCards() {
-  hasFlippedCard = false;
-  lockCard = false;
-  firstCard = null;
-  secondCard = null;
+function show($el) {
+  $el.classList.remove('hide')
 }
 
-function disableCards() {
-  firstCard.removeEventListener('click', flipCard);
-  secondCard.removeEventListener('click', flipCard);
-
-  unflipLastTwoCards();
-}
-  
-function unflipCards() {
-  setTimeout(() => {
-    firstCard.classList.remove('flip');
-    secondCard.classList.remove('flip');
-
-    unflipLastTwoCards();
-  }, 1000);
+function hide($el) {
+  $el.classList.add('hide')
 }
 
-const checkForMatch = () => {
-  let isMatch = firstCard.dataset.img === secondCard.dataset.img;
-  if (isMatch) {
-    disableCards();
-    countOpenCards += 2;
-    if (countOpenCards === countAllCards) {
-      finishGame();
+
+function startGame() {
+  score = 0
+  setGameTime()
+  $gameTime.setAttribute('disabled', 'true')
+  isGameStarted = true
+  hide(btn)
+
+  var interval = setInterval(function() {
+    var time = parseFloat($time.textContent)
+    
+    if (time <= 0) {
+      clearInterval(interval)
+      endGame()
+    } else {
+      $time.textContent = (time - 0.1).toFixed(1)
     }
+  }, 100)
 
-  } else {
-    unflipCards();
-  } 
+  renderBox()
 }
 
-function flipCard() {
-  if (lockCard) {
-    return
+function setGameScore() {
+  $result.textContent = score.toString()
+}
+
+function setGameTime() {
+  var time = +$gameTime.value
+  $time.textContent = time.toFixed(1)
+  show($timeHeader)
+  hide($resultHeader)
+}
+
+function endGame() {
+  isGameStarted = false
+  setGameScore()
+  $gameTime.removeAttribute('disabled')
+  show(btn)
+  playground.innerHTML = ''
+  hide($timeHeader)
+  show($resultHeader)
+}
+
+function handleBoxClick(event) {
+  if (!isGameStarted) {
+    return 
   }
 
-  if (this === firstCard) {
-    return
+  if (event.target.dataset.box) {
+    score++
+    renderBox()
   }
-  
-  currentScore++;
-  count.textContent = currentScore + ' moves';
-  this.classList.add('flip');
-
-  if (!hasFlippedCard) {
-    hasFlippedCard = true;
-    firstCard = this;
-    return;
-  }
-
-  secondCard = this;
-  lockCard = true;
-  
-  checkForMatch();
-}
-  
-const shuffle = () => {
-  cards.forEach(card => {
-    let ramdomPos = Math.floor(Math.random() * 12);
-    card.style.order = ramdomPos;
-  });
 }
 
-const startGame = () => {
-  console.log('start game');
-  hasFlippedCard = false;
-  lockCard = false;
-  firstCard = null;
-  secondCard = null;
-  countOpenCards = 0;
-  currentScore = 0;
-  count.textContent = currentScore + ' moves';
-  cards.forEach(card => card.classList.remove('flip'));
+function renderBox() {
+  playground.innerHTML = ''
+  var box = document.createElement('div')
+  var boxSize = getRandom(30, 100)
+  var gameSize = playground.getBoundingClientRect()
+  var maxTop = gameSize.height - boxSize
+  var maxLeft = gameSize.width - boxSize
+  // [1, 2, 3] -> length == 3
+  var randomColorIndex = getRandom(0, colors.length)
 
-  cards.forEach(elem => elem.addEventListener('click', flipCard));
+  box.style.height = box.style.width = boxSize + 'px'
+  box.style.position = 'absolute'
+  box.style.backgroundColor = colors[randomColorIndex]
+  box.style.top = getRandom(0, maxTop) + 'px'
+  box.style.left = getRandom(0, maxLeft) + 'px'
+  box.style.cursor = 'pointer'
+  box.setAttribute('data-box', 'true')
 
-  setTimeout(() => {  
-    shuffle();
-  }, 1000);
+  playground.insertAdjacentElement('afterbegin', box)
 
 }
 
-
-/*****************
-finish game
-*****************/
-const newScore = () => {
-  console.log('newScore', currentScore);
-  if (records.length >= 10) {
-    records.shift();
-    records.push(currentScore);
-    console.log('finish records', records);
-    for (let i = 0; i < records.length - 1; i++) {
-      place[i].textContent = place[i+1].textContent;
-      console.log(i);
-    }
-  } else {
-    records.push(currentScore);
-    console.log('finish records', records);
-  }
-    place[records.length - 1].textContent = currentScore;
-}
-
-const newLocalStorage = () => {
-  localStorage.setItem('records', records);
-  console.log('set local storage records', records);  
-}
-
-const finishGame = () => {
-  console.log('finish game');
-  count.textContent = 'finish';
-  newScore();
-  newLocalStorage();
+function getRandom(min, max) {
+  return Math.floor(Math.random() * (max - min) + min)
 }
 
 
 /*****************
 События
 *****************/
-document.addEventListener('DOMContentLoaded', startGame);
-btn.addEventListener('click', startGame);
+btn.addEventListener('click', startGame)
+playground.addEventListener('click', handleBoxClick)
+$gameTime.addEventListener('input', setGameTime)
 
-console.log('frontend200tb memory finish');
+console.log('frontend200tb random finish');

@@ -62,7 +62,7 @@ HEADER
   width: 150px;
   height: 50px;
   text-align: right;
-  background-image: url("../assets/svg/memory.svg");
+  background-image: url("../assets/svg/squares.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -83,84 +83,77 @@ MAIN
 }
 
 
-/***********************
-SCORE
-***********************/
-.score {
+.app {
+  background: var(--light);
+  width: 600px;
+  margin: 0 auto;
+}
+
+.app__header {
+  padding: 20px;
+  text-align: center;
+}
+
+.app__content {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.app__footer {
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
   align-items: center;
-  gap: 10px;
 }
 
-.score-title {
-  width: 100px;
-  height: 50px;
-  border-radius: 20px;
-  background-image: url("../assets/svg/score.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: var(--dark);
-}
-
-caption {
-  width: 150px;
-}
-
-.place {
-  padding: 0 10px;
-  text-align: left;
-  border-radius: 20px;
-  background-color: var(--dark);
-}
-
-
-/***********************
-PLAYGROUND
-***********************/
-.playground {
+.input {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 450px;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
-.card {
-  width: 100px;
-  height: 100px;
-  margin: 5px;
-  position: relative;
-  transform: scale(1);
-  transform-style: preserve-3d;
-  transition: transform .5s;
+.input label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 3px;
+  color: #acacac;
+  font-family: GothamPro,sans-serif;
+  font-size: .8rem;
+  font-weight: normal;
+  line-height: 1.2rem;
 }
 
-.card:active {
-  transform: scale(0.97);
-  transition: transform .2s;
-}
-
-.card.flip {
-  transform: rotateY(180deg);
-}
-
-.card img {
-  border-radius: 20px;
-}
-
-.face {
-  transform: rotateY(180deg);
-}
-
-.face,
-.cover {
+.input input {
+  display: block;
   width: 100%;
-  height: 100%;
-  position: absolute;
+  max-height: 2.8rem;
+  padding: .8rem 1rem;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4;
+  color: #000;
+  background: #fff none;
+  border: 1px solid #999;
   border-radius: 5px;
-  background-color: var(--dark);
-  backface-visibility: hidden;
+}
+
+.playground {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--middle);
+  min-height: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.hide {
+  display: none;
 }
 
 
@@ -178,11 +171,15 @@ BUTTON
   border-radius: 20px;
   transition: all 0.3s;
   cursor: pointer;
+  position: absolute;
+  z-index: 1;
 }
 
 .btn:hover {
-  transform: translateY(-10px);
+  box-shadow: 0 6px 16px 0 rgba(0,0,0,.2);
+  transform: translateY(-1px);
 }
+
 
 /***********************
 FOOTER
@@ -223,6 +220,5 @@ FOOTER
 }
 
 .footer-logo:hover {
-  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-    contrast(87%);
+  filter: invert(22%) sepia(61%) saturate(4249%) hue-rotate(359deg) brightness(103%) contrast(104%);
 }
